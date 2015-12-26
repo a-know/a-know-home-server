@@ -13,6 +13,7 @@
   "run_list": [
     "recipe[firewalld::disable]",
     "recipe[ruby]",
+    "recipe[sudoers]",
     "recipe[timezone]"
   ]
 }
