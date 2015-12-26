@@ -4,6 +4,7 @@
   "json_class": "Chef::Role",
 
   "run_list": [
+    "recipe[firewalld::disable]",
     "recipe[timezone]"
   ]
 }
