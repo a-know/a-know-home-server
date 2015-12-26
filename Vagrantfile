@@ -11,4 +11,32 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define 'web' do |web|
     web.cache.scope = :box if Vagrant.has_plugin? 'vagrant-cachier'
   end
+
+  config.vm.define :gcp do |gcp|
+    gcp.vm.box = "gce"
+    gcp.vm.box_url = "https://github.com/mitchellh/vagrant-google/raw/master/google.box"
+    gcp.vm.synced_folder ".", "/vagrant", disabled: true
+
+    gcp.vm.provider :google do |google, override|
+      google.google_project_id = ENV['GCP_PROJECT_ID']
+      google.google_client_email = ENV['GCP_EMAIL']
+      google.google_json_key_location = ENV['GCP_KEY_LOCATION']
+
+      google.name = "ci-instance-#{Time.new.to_i}"
+      google.zone = "asia-east1-a"
+      google.machine_type = "n1-standard-1"
+
+      google.image = "centos-7-v20151104"
+      google.disk_size = "10"
+
+      google.preemptible = true
+      google.on_host_maintenance = "TERMINATE"
+
+      google.auto_restart = false
+
+      override.ssh.username = 'circleci'
+      override.ssh.private_key_path = '~/.ssh/id_a-know-home-circleci'
+      override.ssh.pty = true
+    end
+  end
 end
