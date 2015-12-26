@@ -11,6 +11,7 @@ dependencies:
     - |
       VERSION=1.7.4
       mkdir ~/cache
+      mkdir .ssh
       cd ~/cache
       if [ ! -f vagrant_${VERSION}_x86_64.deb ]; then
         wget https://dl.bintray.com/mitchellh/vagrant/vagrant_${VERSION}_x86_64.deb
