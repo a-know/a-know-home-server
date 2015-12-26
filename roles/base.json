@@ -3,8 +3,16 @@
   "description": "base role",
   "json_class": "Chef::Role",
 
+  "override_attributes": {
+    "ruby": {
+      "version": "2.3.0",
+      "checksum": "b74c392edb4252d21a2f50da1f8805141b2442a5cc49a6431dad0b25e9869046"
+    }
+  },
+
   "run_list": [
     "recipe[firewalld::disable]",
+    "recipe[ruby]",
     "recipe[timezone]"
   ]
 }
