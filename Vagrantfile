@@ -38,5 +38,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       override.ssh.private_key_path = '~/.ssh/id_a-know-home-circleci'
       override.ssh.pty = true
     end
+
+    gcp.vm.provision "shell", inline: <<-SHELL
+      sudo gpasswd -a circleci wheel
+    SHELL
   end
 end
