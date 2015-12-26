@@ -1,6 +1,5 @@
 require 'serverspec'
 require 'net/ssh'
-require 'tempfile'
 
 set :backend, :ssh
 
@@ -17,25 +16,14 @@ end
 
 host = ENV['TARGET_HOST']
 
-`vagrant up #{host}`
-
-config = Tempfile.new('', Dir.tmpdir)
-config.write(`vagrant ssh-config #{host}`)
-config.close
-
-options = Net::SSH::Config.for(host, [config.path])
+options = Net::SSH::Config.for(host)
 
 options[:user] ||= Etc.getlogin
 
 set :host,        options[:host_name] || host
 set :ssh_options, options
+set :request_pty, true
 
-# Disable sudo
-# set :disable_sudo, true
-
-
-# Set environment variables
-# set :env, :LANG => 'C', :LC_MESSAGES => 'C' 
-
-# Set PATH
-# set :path, '/sbin:/usr/local/sbin:$PATH'
+Dir[File.expand_path('{shared,support}/*.rb', File.dirname(__FILE__))].each do |file|
+  require file
+end
