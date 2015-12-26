@@ -2,3 +2,4 @@
 /.envrc
 /.vagrant
 /vendor/bundle
+/cookbooks/
