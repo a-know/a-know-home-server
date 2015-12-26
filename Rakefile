@@ -7,6 +7,11 @@ hosts = [
     short_name: 'vm:web',
     role:       'web',
   },
+  {
+    name:       'ci-web',
+    short_name: 'ci:web',
+    role:       'web',
+  },
 ]
 
 class ServerspecTask < RSpec::Core::RakeTask

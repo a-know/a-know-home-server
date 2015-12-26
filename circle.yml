@@ -24,10 +24,10 @@ dependencies:
 test:
   pre:
     - vagrant up gcp --provider=google
-    - vagrant ssh-config --host ci-vm gcp >> ~/.ssh/config
-    - bundle exec knife solo bootstrap ci-vm
+    - vagrant ssh-config --host ci-web gcp >> ~/.ssh/config
+    - bundle exec knife solo bootstrap ci-web
     - vagrant ssh gcp -c "sudo gpasswd -a circleci wheel"
   override:
-    - bundle exec rake spec:ci
+    - bundle exec rake spec:ci:web
   post:
     - vagrant destroy gcp -f
