@@ -11,6 +11,7 @@
   },
 
   "run_list": [
+    "recipe[hostname]",
     "recipe[firewalld::disable]",
     "recipe[ruby]",
     "recipe[sudoers]",

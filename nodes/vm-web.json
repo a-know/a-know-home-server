@@ -1,4 +1,7 @@
 {
+  "hostname_attr": {
+    "hostname": "vm-centrage"
+  },
   "run_list": [
     "role[base]"
   ]
