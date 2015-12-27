@@ -14,6 +14,7 @@
     "recipe[firewalld::disable]",
     "recipe[ruby]",
     "recipe[sudoers]",
+    "recipe[td-agent]",
     "recipe[timezone]"
   ]
 }
