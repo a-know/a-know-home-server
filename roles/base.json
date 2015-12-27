@@ -15,6 +15,7 @@
     "recipe[firewalld::disable]",
     "recipe[git]",
     "recipe[hostname]",
+    "recipe[openssh]",
     "recipe[ruby]",
     "recipe[sudoers]",
     "recipe[td-agent]",
