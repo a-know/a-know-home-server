@@ -17,6 +17,7 @@
     "recipe[hostname]",
     "recipe[openssh]",
     "recipe[ruby]",
+    "recipe[selinux::permissive]",
     "recipe[sudoers]",
     "recipe[td-agent]",
     "recipe[timezone]"
