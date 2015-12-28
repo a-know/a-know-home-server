@@ -13,13 +13,16 @@
   "run_list": [
     "recipe[chrony]",
     "recipe[firewalld::disable]",
+    "recipe[gcc]",
     "recipe[git]",
     "recipe[hostname]",
     "recipe[openssh]",
+    "recipe[patch]",
     "recipe[ruby]",
     "recipe[selinux::permissive]",
     "recipe[sudoers]",
     "recipe[td-agent]",
-    "recipe[timezone]"
+    "recipe[timezone]",
+    "recipe[zlib::devel]"
   ]
 }
