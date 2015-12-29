@@ -9,6 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.insert_key = false
 
   config.vm.define 'web' do |web|
+    web.vm.network 'private_network', ip: '192.168.33.10'
     web.cache.scope = :box if Vagrant.has_plugin? 'vagrant-cachier'
   end
 
