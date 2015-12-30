@@ -1,0 +1,13 @@
+/var/www/a-know-home/shared/log/*.log {
+    daily
+    missingok
+    dateext
+    ifempty
+    sharedscripts
+    rotate 7
+    su dev dev
+    postrotate
+      pid=/var/www/a-know-home/current/tmp/pids/unicorn.pid
+      test -s $pid && kill -USR1 "$(cat $pid)"
+    endscript
+}

@@ -16,6 +16,7 @@
     "recipe[gcc]",
     "recipe[git]",
     "recipe[hostname]",
+    "recipe[logrotate]",
     "recipe[nginx]",
     "recipe[openssh]",
     "recipe[patch]",
