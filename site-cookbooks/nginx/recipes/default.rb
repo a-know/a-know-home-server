@@ -28,3 +28,5 @@ template '/etc/nginx/conf.d/home.a-know.me.conf' do
   mode     0644
   notifies :reload, 'service[nginx]'
 end
+
+include_recipe 'nginx::logrotate'
