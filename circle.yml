@@ -22,6 +22,7 @@ dependencies:
       fi
       cd ~/$CIRCLE_PROJECT_REPONAME
       echo $GCP_KEY > $GCP_KEY_LOCATION
+      sudo echo -e $DATA_BAG_KEY > data_bag_key
 test:
   pre:
     - vagrant up gcp --provider=google

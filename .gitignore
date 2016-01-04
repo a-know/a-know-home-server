@@ -3,3 +3,4 @@
 /.vagrant
 /vendor/bundle
 /cookbooks/
+data_bag_key
