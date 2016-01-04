@@ -12,6 +12,11 @@ hosts = [
     short_name: 'ci:web',
     role:       'web',
   },
+  {
+    name:       'home.a-know.me',
+    short_name: 'prod:web',
+    role:       'web',
+  },
 ]
 
 class ServerspecTask < RSpec::Core::RakeTask
