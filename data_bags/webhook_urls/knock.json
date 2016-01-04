@@ -1,0 +1,9 @@
+{
+  "id": "knock",
+  "slack": {
+    "encrypted_data": "W20L8VqSyJEjAir0jpbwT8auZt5zCDcLAgu8rLZvMuQ1eEi7xzmRqAi11GcD\nqRffYB8FyEn/j1UEawEe5wwiEgyRPBk88JVhiSDFRthoBAfAoZyUoAOGNlWO\nycdP8Iq3jQUjQvTSkrP1eMnopS2D/w==\n",
+    "iv": "87afLW+TSx77435FLue4aQ==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}
