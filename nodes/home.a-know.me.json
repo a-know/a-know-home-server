@@ -1,0 +1,8 @@
+{
+  "hostname_attr": {
+    "hostname": "centrage"
+  },
+  "run_list": [
+    "role[base]"
+  ]
+}
