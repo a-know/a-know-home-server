@@ -1,0 +1,14 @@
+<source>
+  type forward
+</source>
+
+<match knock.slack>
+  type slack
+  webhook_url <%= @knock_url %>
+  channel a-know-home-notify
+  username VisitorNotification
+  icon_emoji :wind_chime:
+  flush_interval 10s
+</match>
+
+@include conf.d/*.conf
