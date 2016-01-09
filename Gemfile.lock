@@ -39,11 +39,11 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     ffi (1.9.10)
-    ffi-yajl (2.2.2)
+    ffi-yajl (2.2.3)
       libyajl2 (~> 1.2)
     hashie (3.4.3)
     highline (1.7.8)
-    ipaddress (0.8.0)
+    ipaddress (0.8.2)
     knife-solo (0.5.1)
       chef (>= 10.20)
       erubis (~> 2.7.0)
@@ -105,14 +105,14 @@ GEM
     rspec_junit_formatter (0.2.3)
       builder (< 4)
       rspec-core (>= 2, < 4, != 2.12.0)
-    serverspec (2.25.0)
+    serverspec (2.28.0)
       multi_json
       rspec (~> 3.0)
       rspec-its
-      specinfra (~> 2.46)
+      specinfra (~> 2.48)
     sfl (2.2)
     slop (3.6.0)
-    specinfra (2.47.0)
+    specinfra (2.49.0)
       net-scp
       net-ssh (>= 2.7, < 3.1)
       net-telnet
