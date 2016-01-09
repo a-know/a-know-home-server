@@ -17,6 +17,7 @@
     "recipe[git]",
     "recipe[hostname]",
     "recipe[logrotate]",
+    "recipe[mkswap]",
     "recipe[nginx]",
     "recipe[openssh]",
     "recipe[patch]",
