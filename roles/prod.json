@@ -1,0 +1,9 @@
+{
+  "name": "prod",
+  "description": "prod role",
+  "json_class": "Chef::Role",
+
+  "run_list": [
+    "recipe[mkswap]"
+  ]
+}

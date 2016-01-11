@@ -5,17 +5,17 @@ hosts = [
   {
     name:       'vm-web',
     short_name: 'vm:web',
-    role:       'web',
+    role:       'web_base',
   },
   {
     name:       'ci-web',
     short_name: 'ci:web',
-    role:       'web',
+    role:       'web_base',
   },
   {
     name:       'home.a-know.me',
     short_name: 'prod:web',
-    role:       'web',
+    role:       'web_prod',
   },
 ]
 
