@@ -3,6 +3,7 @@
     "hostname": "centrage"
   },
   "run_list": [
-    "role[base]"
+    "role[base]",
+    "role[prod]"
   ]
 }
