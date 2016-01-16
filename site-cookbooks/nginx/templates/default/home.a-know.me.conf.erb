@@ -4,7 +4,15 @@ upstream unicorn {
 
 server {
     listen       80;
+    listen       443 ssl;
     server_name  home.a-know.me;
+
+    ssl_certificate /etc/letsencrypt/live/home.a-know.me/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/home.a-know.me/privkey.pem;
+
+    ssl_session_cache   shared:SSL:3m;
+    ssl_buffer_size     8k;
+    ssl_session_timeout 10m;
 
     root /var/www/a-know-home/current/public;
 
