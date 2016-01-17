@@ -20,6 +20,7 @@
     "recipe[nginx]",
     "recipe[openssh]",
     "recipe[patch]",
+    "recipe[perl_environment]",
     "recipe[ruby]",
     "recipe[selinux::permissive]",
     "recipe[sudoers]",
