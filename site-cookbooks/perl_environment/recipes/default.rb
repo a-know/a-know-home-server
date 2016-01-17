@@ -47,3 +47,15 @@ execute 'Install perl-5.22.1' do
   EOC
   creates '/home/a-know/.plenv/versions/5.22.1'
 end
+
+execute 'Install cpanm' do
+  user 'a-know'
+  group 'a-know'
+  environment ({'HOME' => "/home/a-know", 'USER' => 'a-know'})
+  command <<-EOC
+   export PATH=$HOME/.plenv/bin:$PATH
+   eval "$(plenv init -)"
+   plenv install-cpanm
+  EOC
+  creates '/home/a-know/.plenv/versions/5.22.1/bin/cpanm'
+end
