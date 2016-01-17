@@ -25,7 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       google.name = "ci-instance-#{Time.new.to_i}"
       google.zone = "asia-east1-a"
-      google.machine_type = "n1-standard-1"
+      google.machine_type = "n1-standard-2"
 
       google.image = "centos-7-v20151104"
       google.disk_size = "10"
