@@ -1,32 +1,34 @@
 include_recipe 'git'
 
-directory '/usr/local/perlenv'
-user = node[:perlenv][:user]
-
-git '/usr/local/perlenv/.plenv' do
+git '/home/a-know/.plenv' do
   repository 'git://github.com/tokuhirom/plenv.git'
+  user 'a-know'
+  group 'a-know'
   reference 'master'
   action :checkout
 end
 
-bash 'export plenv path' do
-  code <<-EOS
-  echo "export PATH=/usr/local/perlenv/.plenv/bin:$PATH" >> /home/#{user}/.bash_profile
-  echo 'eval "$(plenv init -)"' >> /home/#{user}/.bash_profile
-  echo 'export PLENV_ROOT=/usr/local/perlenv/.plenv' >> /home/#{user}/.bash_profile
-  source /home/#{user}/.bash_profile
-  EOS
-  not_if "grep 'PLENV_ROOT=/usr/local/perlenv/.plenv' /home/#{user}/.bash_profile"
+execute 'export plenv path' do
+  user 'a-know'
+  environment ({'HOME' => "/home/a-know", 'USER' => 'a-know'})
+  command <<-EOC
+  echo "export PATH=/home/a-know/.plenv/bin:$PATH" >> /home/a-know/.bash_profile
+  echo 'eval "$(plenv init -)"' >> /home/a-know/.bash_profile
+  source /home/a-know/.bash_profile
+  EOC
+  not_if "grep 'PATH=/home/a-know/.plenv/bin:$PATH' /home/a-know/.bash_profile"
 end
 
-directory '/usr/local/perlenv/.plenv/plugins' do
-  owner 'root'
-  group 'root'
+directory '/home/a-know/.plenv/plugins' do
+  owner 'a-know'
+  group 'a-know'
   mode  0755
   action :create
 end
 
-git '/usr/local/perlenv/.plenv/plugins/perl-build' do
+git '/home/a-know/.plenv/plugins/perl-build' do
+  user 'a-know'
+  group 'a-know'
   repository 'git://github.com/tokuhirom/Perl-Build.git'
   reference 'master'
   action :checkout
