@@ -3,6 +3,7 @@
     "hostname": "ci-centrage"
   },
   "run_list": [
-    "role[base]"
+    "role[base]",
+    "role[vm]"
   ]
 }
