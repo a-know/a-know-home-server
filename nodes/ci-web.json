@@ -5,5 +5,8 @@
   "run_list": [
     "role[base]",
     "role[vm]"
-  ]
+  ],
+  "perlenv": {
+      "user": "vagrant"
+  }
 }
