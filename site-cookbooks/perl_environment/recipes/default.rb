@@ -17,3 +17,16 @@ bash 'export plenv path' do
   EOS
   not_if "grep '/usr/local/perlenv/.plenv/bin' /home/#{user}/.bash_profile"
 end
+
+directory '/usr/local/perlenv/.plenv/plugins' do
+  owner 'root'
+  group 'root'
+  mode  0755
+  action :create
+end
+
+git '/usr/local/perlenv/.plenv/plugins/perl-build' do
+  repository 'git://github.com/tokuhirom/Perl-Build.git'
+  reference 'master'
+  action :checkout
+end
