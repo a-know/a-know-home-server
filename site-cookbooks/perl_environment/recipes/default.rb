@@ -16,7 +16,7 @@ execute 'export plenv path' do
   echo 'eval "$(plenv init -)"' >> /home/a-know/.bash_profile
   source /home/a-know/.bash_profile
   EOC
-  not_if "grep 'PATH=/home/a-know/.plenv/bin:$PATH' /home/a-know/.bash_profile"
+  not_if "grep 'PATH=/home/a-know/.plenv/bin' /home/a-know/.bash_profile"
 end
 
 directory '/home/a-know/.plenv/plugins' do
@@ -32,4 +32,18 @@ git '/home/a-know/.plenv/plugins/perl-build' do
   repository 'git://github.com/tokuhirom/Perl-Build.git'
   reference 'master'
   action :checkout
+end
+
+execute 'Install perl-5.22.1' do
+  user 'a-know'
+  group 'a-know'
+  environment ({'HOME' => "/home/a-know", 'USER' => 'a-know'})
+  command <<-EOC
+   export PATH=/home/a-know/.plenv/bin:$PATH
+   eval "$(plenv init -)"
+   plenv install 5.22.1 -Dusethreads
+   plenv global 5.22.1
+   plenv rehash
+  EOC
+  creates '/home/a-know/.plenv/versions/5.22.1'
 end
