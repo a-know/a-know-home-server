@@ -41,4 +41,13 @@ shared_examples 'perl_environment' do
       it { should be_mode 555 }
     end
   end
+
+  describe 'installed carton' do
+    describe file '/home/a-know/.plenv/versions/5.22.1/bin/carton' do
+      it { should be_file }
+      it { should be_owned_by 'a-know' }
+      it { should be_grouped_into 'a-know' }
+      it { should be_mode 555 }
+    end
+  end
 end

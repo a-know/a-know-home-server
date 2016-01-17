@@ -59,3 +59,15 @@ execute 'Install cpanm' do
   EOC
   creates '/home/a-know/.plenv/versions/5.22.1/bin/cpanm'
 end
+
+execute 'Install carton' do
+  user 'a-know'
+  group 'a-know'
+  environment ({'HOME' => "/home/a-know", 'USER' => 'a-know'})
+  command <<-EOC
+   export PATH=$HOME/.plenv/bin:$PATH
+   eval "$(plenv init -)"
+   plenv exec cpanm Carton
+  EOC
+  creates '/home/a-know/.plenv/versions/5.22.1/bin/carton'
+end
