@@ -1,4 +1,5 @@
 include_recipe 'git'
+include_recipe 'users'
 
 git '/home/a-know/.plenv' do
   repository 'git://github.com/tokuhirom/plenv.git'
