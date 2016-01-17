@@ -13,9 +13,10 @@ bash 'export plenv path' do
   code <<-EOS
   echo "export PATH=/usr/local/perlenv/.plenv/bin:$PATH" >> /home/#{user}/.bash_profile
   echo 'eval "$(plenv init -)"' >> /home/#{user}/.bash_profile
+  echo 'export PLENV_ROOT=/usr/local/perlenv/.plenv' >> /home/#{user}/.bash_profile
   source /home/#{user}/.bash_profile
   EOS
-  not_if "grep '/usr/local/perlenv/.plenv/bin' /home/#{user}/.bash_profile"
+  not_if "grep 'PLENV_ROOT=/usr/local/perlenv/.plenv' /home/#{user}/.bash_profile"
 end
 
 directory '/usr/local/perlenv/.plenv/plugins' do
