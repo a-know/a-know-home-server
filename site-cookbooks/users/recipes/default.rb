@@ -5,7 +5,7 @@ groups = {}
 data_ids.each do |id|
   u = data_bag_item('users', id)
   user u['uid'] do
-    gid u['gid']# unless u['uid'] == u['gid']
+    gid u['gid'] unless u['uid'] == u['gid']
     password u['password']
     home u['home']
     shell u['shell']
