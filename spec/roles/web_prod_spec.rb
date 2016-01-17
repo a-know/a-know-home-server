@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe 'web' do
   it_behaves_like 'chrony'
+  it_behaves_like 'crontab'
   it_behaves_like 'firewalld::disable'
   it_behaves_like 'gcc'
   it_behaves_like 'git'
