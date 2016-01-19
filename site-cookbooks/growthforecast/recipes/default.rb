@@ -12,3 +12,11 @@ cookbook_file '/home/a-know/growthforecast/cpanfile' do
   group 'a-know'
   mode 0644
 end
+
+# rrdtool dependencies
+package 'pkgconfig'
+package 'glib2-devel'
+package 'gettext'
+package 'libxml2-devel'
+package 'pango-devel'
+package 'cairo-devel'

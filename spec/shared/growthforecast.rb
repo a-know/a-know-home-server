@@ -12,4 +12,25 @@ shared_examples 'growthforecast' do
     it { should be_grouped_into 'a-know' }
     it { should be_mode 644 }
   end
+
+  describe 'rrdtool dependencies' do
+    describe package 'pkgconfig' do
+      it { should be_installed }
+    end
+    describe package 'glib2-devel' do
+      it { should be_installed }
+    end
+    describe package 'gettext' do
+      it { should be_installed }
+    end
+    describe package 'libxml2-devel' do
+      it { should be_installed }
+    end
+    describe package 'pango-devel' do
+      it { should be_installed }
+    end
+    describe package 'cairo-devel' do
+      it { should be_installed }
+    end
+  end
 end
