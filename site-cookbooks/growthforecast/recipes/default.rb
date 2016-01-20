@@ -20,3 +20,17 @@ package 'gettext'
 package 'libxml2-devel'
 package 'pango-devel'
 package 'cairo-devel'
+
+
+execute 'GrowthForecast install' do
+  user 'a-know'
+  group 'a-know'
+  environment ({'HOME' => "/home/a-know", 'USER' => 'a-know'})
+  command <<-EOC
+   export PATH=$HOME/.plenv/bin:$PATH
+   eval "$(plenv init -)"
+   cd $HOME/growthforecast
+   plenv exec carton install
+  EOC
+  creates '/home/a-know/growthforecast/local/bin/growthforecast.pl'
+end
