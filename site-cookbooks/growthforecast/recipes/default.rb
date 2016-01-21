@@ -1,4 +1,5 @@
 include_recipe 'users'
+include_recipe 'perl_environment'
 
 directory '/home/a-know/growthforecast' do
   owner 'a-know'
