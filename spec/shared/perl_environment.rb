@@ -33,6 +33,14 @@ shared_examples 'perl_environment' do
     end
   end
 
+  describe package 'perl-ExtUtils-Manifest' do
+    it { should be_installed }
+  end
+
+  describe package 'perl-Data-Dumper' do
+    it { should be_installed }
+  end
+
   describe 'installed cpanm' do
     describe file '/home/a-know/.plenv/versions/5.22.1/bin/cpanm' do
       it { should be_file }

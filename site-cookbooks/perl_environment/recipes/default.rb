@@ -50,6 +50,9 @@ execute 'Install perl-5.22.1' do
   creates '/home/a-know/.plenv/versions/5.22.1'
 end
 
+package 'perl-ExtUtils-Manifest'
+package 'perl-Data-Dumper'
+
 execute 'Install cpanm' do
   user 'a-know'
   group 'a-know'
