@@ -1,5 +1,6 @@
 include_recipe 'git'
 include_recipe 'users'
+include_recipe 'sudoers'
 
 git '/home/a-know/.plenv' do
   repository 'git://github.com/tokuhirom/plenv.git'
