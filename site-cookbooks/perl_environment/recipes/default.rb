@@ -1,6 +1,7 @@
 include_recipe 'git'
 include_recipe 'users'
 include_recipe 'sudoers'
+include_recipe 'patch'
 
 git '/home/a-know/.plenv' do
   repository 'git://github.com/tokuhirom/plenv.git'
@@ -49,9 +50,6 @@ execute 'Install perl-5.22.1' do
   EOC
   creates '/home/a-know/.plenv/versions/5.22.1'
 end
-
-package 'perl-ExtUtils-Manifest'
-package 'perl-Data-Dumper'
 
 execute 'Install cpanm' do
   user 'a-know'

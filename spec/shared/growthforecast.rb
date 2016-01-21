@@ -38,6 +38,6 @@ shared_examples 'growthforecast' do
     it { should be_file }
     it { should be_owned_by 'a-know' }
     it { should be_grouped_into 'a-know' }
-    it { should be_mode 755 }
+    it { should be_mode 555 }
   end
 end
