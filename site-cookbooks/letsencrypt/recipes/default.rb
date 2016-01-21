@@ -53,3 +53,25 @@ cookbook_file '/etc/letsencrypt/archive/home.a-know.me/privkey1.pem' do
   mode     0644
   source   'privkey1.pem'
 end
+
+directory '/etc/letsencrypt/live' do
+  owner 'root'
+  group 'root'
+  mode  0700
+  action :create
+end
+
+directory '/etc/letsencrypt/live/home.a-know.me' do
+  owner 'root'
+  group 'root'
+  mode  0755
+  action :create
+end
+
+link "/etc/letsencrypt/live/home.a-know.me/fullchain.pem" do
+  to "/etc/letsencrypt/archive/home.a-know.me/fullchain1.pem"
+end
+
+link "/etc/letsencrypt/live/home.a-know.me/privkey.pem" do
+  to "/etc/letsencrypt/archive/home.a-know.me/privkey1.pem"
+end
