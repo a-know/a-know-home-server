@@ -40,4 +40,8 @@ shared_examples 'growthforecast' do
     it { should be_grouped_into 'a-know' }
     it { should be_mode 555 }
   end
+
+  describe command "ps aux | grep 'GrowthForecast::Web' | grep -v 'grep'" do
+    its(:stdout) { should match /GrowthForecast::Web/ }
+  end
 end

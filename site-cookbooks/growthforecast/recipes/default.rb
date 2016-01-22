@@ -35,3 +35,15 @@ execute 'GrowthForecast install' do
   EOC
   creates '/home/a-know/growthforecast/local/bin/growthforecast.pl'
 end
+
+execute 'start GrowthForecast' do
+  user 'a-know'
+  group 'a-know'
+  environment ({'HOME' => "/home/a-know", 'USER' => 'a-know'})
+  command <<-EOC
+    export PATH=$HOME/.plenv/bin:$PATH
+    eval "$(plenv init -)"
+    plenv exec carton exec -- perl local/bin/growthforecast.pl --data-dir /home/a-know/growthforecast &
+  EOC
+  not_if "ps aux | grep 'GrowthForecast::Web' | grep -v 'grep'"
+end
