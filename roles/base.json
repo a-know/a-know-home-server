@@ -25,7 +25,6 @@
     "recipe[ruby]",
     "recipe[selinux::permissive]",
     "recipe[sudoers]",
-    "recipe[supervisor]",
     "recipe[td-agent::setting]",
     "recipe[timezone]",
     "recipe[zlib::devel]"

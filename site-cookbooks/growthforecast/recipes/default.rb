@@ -43,6 +43,7 @@ execute 'start GrowthForecast' do
   command <<-EOC
     export PATH=$HOME/.plenv/bin:$PATH
     eval "$(plenv init -)"
+    cd /home/a-know/growthforecast
     plenv exec carton exec -- perl local/bin/growthforecast.pl --data-dir /home/a-know/growthforecast &
   EOC
   not_if "ps aux | grep 'GrowthForecast::Web' | grep -v 'grep'"
