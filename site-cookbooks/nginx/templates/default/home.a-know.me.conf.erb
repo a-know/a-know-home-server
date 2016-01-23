@@ -23,6 +23,26 @@ server {
       try_files $uri $uri/index.html $uri.html @unicorn;
     }
 
+    location ~ /growthforecast/[js|css]/.+\.(json|js|html|less|css|eot|svg|ttf|woff|otf|scss|txt|jpg|png|gif|map|ico)$ {
+      if ($request_method !~ ^(GET|HEAD)$) {
+        return 403;
+      }
+      rewrite ^/growthforecast/(.+) /$1 break;
+      rewrite ^/growthforecast / break;
+      proxy_pass http://127.0.0.1:5125;
+      proxy_set_header Host $host/growthforecast;
+    }
+
+    location /growthforecast {
+      if ($request_method !~ ^(GET|HEAD)$) {
+        return 403;
+      }
+      rewrite ^/growthforecast/(.+) /$1 break;
+      rewrite ^/growthforecast / break;
+      proxy_pass http://127.0.0.1:5125;
+      proxy_set_header Host $host/growthforecast;
+    }
+
     location ~ .*\.(json|js|html|less|css|eot|svg|ttf|woff|otf|scss|txt|jpg|png|gif|map|ico) {
       root /var/www/a-know-home/current/public;
     }
