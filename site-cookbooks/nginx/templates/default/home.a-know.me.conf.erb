@@ -23,7 +23,7 @@ server {
       try_files $uri $uri/index.html $uri.html @unicorn;
     }
 
-    location ~ /growthforecast/[js|css]/.+\.(json|js|html|less|css|eot|svg|ttf|woff|otf|scss|txt|jpg|png|gif|map|ico)$ {
+    location ~ /growthforecast/(css|js)/.+\.(css|js) {
       if ($request_method !~ ^(GET|HEAD)$) {
         return 403;
       }
