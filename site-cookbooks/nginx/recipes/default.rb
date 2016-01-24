@@ -30,3 +30,4 @@ template '/etc/nginx/conf.d/home.a-know.me.conf' do
 end
 
 include_recipe 'nginx::logrotate'
+include_recipe 'nginx::basic_auth'

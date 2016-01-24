@@ -7,5 +7,5 @@ end
 
 service 'supervisord' do
   action [:enable, :start]
-  supports reload: true
+  supports restart: true
 end
