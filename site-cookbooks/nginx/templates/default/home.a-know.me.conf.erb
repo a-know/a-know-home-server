@@ -34,6 +34,9 @@ server {
     }
 
     location /growthforecast {
+      auth_basic "Secret Area";
+      auth_basic_user_file "/home/a-know/growthforecast/.htpasswd";
+
       if ($request_method !~ ^(GET|HEAD)$) {
         return 403;
       }
