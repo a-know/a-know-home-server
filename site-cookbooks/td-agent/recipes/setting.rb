@@ -1,5 +1,6 @@
 include_recipe 'td-agent'
 data_bag = Chef::EncryptedDataBagItem.load('webhook_urls', 'knock')
+mackerel_credentials = Chef::EncryptedDataBagItem.load('credentials', 'mackerel')
 
 
 %w(fluent-plugin-slack fluentd-plugin-mackerel fluent-plugin-datacounter).each do |gem|
@@ -12,5 +13,14 @@ end
 template '/etc/td-agent/td-agent.conf' do
   variables knock_url: data_bag['slack']
   source 'td-agent.conf.erb'
+  notifies :restart, 'service[td-agent]'
+end
+
+directory '/etc/td-agent/conf.d'
+
+template '/etc/td-agent/conf.d/nginx_access_log.conf' do
+  variables mackerel_api_key: mackerel_credentials['api_key']
+  variables mackerel_service_name: 'a-know-home'
+  source 'nginx_access_log.conf.erb'
   notifies :restart, 'service[td-agent]'
 end
