@@ -24,5 +24,9 @@ shared_examples 'td-agent' do
     describe package 'fluentd-plugin-mackerel' do
       it { should be_installed.by('gem') }
     end
+
+    describe package 'fluent-plugin-datacounter' do
+      it { should be_installed.by('gem') }
+    end
   end
 end
