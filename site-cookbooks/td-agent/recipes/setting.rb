@@ -2,7 +2,7 @@ include_recipe 'td-agent'
 data_bag = Chef::EncryptedDataBagItem.load('webhook_urls', 'knock')
 
 
-%w(fluent-plugin-slack).each do |gem|
+%w(fluent-plugin-slack fluentd-plugin-mackerel).each do |gem|
   gem_package gem do
     gem_binary '/opt/td-agent/embedded/bin/fluent-gem'
     notifies :restart, 'service[td-agent]'

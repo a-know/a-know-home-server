@@ -20,5 +20,9 @@ shared_examples 'td-agent' do
     describe package 'fluent-plugin-slack' do
       it { should be_installed.by('gem') }
     end
+
+    describe package 'fluentd-plugin-mackerel' do
+      it { should be_installed.by('gem') }
+    end
   end
 end
