@@ -19,8 +19,7 @@ end
 directory '/etc/td-agent/conf.d'
 
 template '/etc/td-agent/conf.d/nginx_access_log.conf' do
-  variables mackerel_api_key: mackerel_credentials['api_key']
-  variables mackerel_service_name: 'a-know-home'
+  variables mackerel_api_key: mackerel_credentials['api_key'], mackerel_service_name: 'a-know-home'
   source 'nginx_access_log.conf.erb'
   notifies :restart, 'service[td-agent]'
 end

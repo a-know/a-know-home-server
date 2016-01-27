@@ -1,0 +1,1 @@
+default['mackerel']['apikey'] = nil
