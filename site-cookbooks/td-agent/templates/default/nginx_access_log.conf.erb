@@ -14,7 +14,7 @@
   count_interval 1m
   count_key status
   aggregate all
-  tag nginx.status.${tag_parts[3]}
+  tag nginx.status.${tag_parts[2]}
   pattern1 2xx ^2\d\d$
   pattern2 3xx ^3\d\d$
   pattern3 4xx ^4\d\d$
