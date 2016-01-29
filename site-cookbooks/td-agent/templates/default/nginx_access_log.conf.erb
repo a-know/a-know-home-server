@@ -5,20 +5,23 @@
   time_format %d/%b/%Y:%H:%M:%S %z
   path /var/log/nginx/home.a-know.me.access.log
   pos_file /var/log/td-agent/home.a-know.me.access_log.pos
-  tag access.nginx.mackerel
+  tag log.nginx
 </source>
 
-# fluent-plugin-datacounterでステータスコード別に集計する
-<match access.nginx.**>
-  type datacounter
-  count_interval 1m
-  count_key status
-  aggregate all
-  tag nginx.status.${tag_parts[2]}
-  pattern1 2xx ^2\d\d$
-  pattern2 3xx ^3\d\d$
-  pattern3 4xx ^4\d\d$
-  pattern4 5xx ^5\d\d$
+<match log.nginx>
+  type copy
+  <store>
+    # fluent-plugin-datacounterでステータスコード別に集計する
+    type datacounter
+    count_interval 1m
+    count_key status
+    aggregate all
+    tag nginx.status.mackerel
+    pattern1 2xx ^2\d\d$
+    pattern2 3xx ^3\d\d$
+    pattern3 4xx ^4\d\d$
+    pattern4 5xx ^5\d\d$
+  </store>
 </match>
 
 # fluent-plugin-mackerelによりサービスメトリックを投稿する
