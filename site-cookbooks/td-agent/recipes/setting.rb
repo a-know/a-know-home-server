@@ -3,7 +3,14 @@ data_bag = Chef::EncryptedDataBagItem.load('webhook_urls', 'knock')
 mackerel_credentials = Chef::EncryptedDataBagItem.load('credentials', 'mackerel')
 
 
-%w(fluent-plugin-slack fluent-plugin-mackerel fluent-plugin-datacounter fluent-plugin-forest).each do |gem|
+%w(
+  fluent-plugin-slack
+  fluent-plugin-mackerel
+  fluent-plugin-datacounter
+  fluent-plugin-forest
+  fluent-plugin-record-reformer
+  fluent-plugin-bigquery
+).each do |gem|
   gem_package gem do
     gem_binary '/opt/td-agent/embedded/bin/fluent-gem'
     notifies :restart, 'service[td-agent]'
