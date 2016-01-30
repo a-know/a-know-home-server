@@ -11,6 +11,12 @@
 <match log.nginx>
   type copy
   <store>
+    # BigQueryの保存先テーブルを月毎に変化させる
+    type record_reformer
+    enable_ruby true
+    tag ${tag}.${time.strftime('%Y%m')}
+  </store>
+  <store>
     # fluent-plugin-datacounterでステータスコード別に集計する
     type datacounter
     count_interval 1m
@@ -32,4 +38,20 @@
   remove_prefix
   metrics_name access_num.${out_key}
   out_keys 2xx_count,3xx_count,4xx_count,5xx_count
+</match>
+
+<match log.nginx.**>
+  type bigquery
+  method insert
+
+  auth_method json_key
+  json_key /etc/td-agent/.keys/nginx-log-to-bigquery-jsonkey.json
+
+  project a-know-home
+  dataset centrage_nginx_log
+  table access_log_${tag_parts[-1]}
+
+  time_format %s
+  time_field time
+  schema_path /etc/td-agent/settings/nginx_access_log_schema.json
 </match>
