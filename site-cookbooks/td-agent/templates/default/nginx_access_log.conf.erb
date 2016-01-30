@@ -42,17 +42,20 @@
 
 <match log.nginx.**>
   type forest
-  subtype bigquery
-  method insert
+  subtype copy
+  <store>
+    type bigquery
+    method insert
 
-  auth_method json_key
-  json_key /etc/td-agent/.keys/nginx-log-to-bigquery-jsonkey.json
+    auth_method json_key
+    json_key /etc/td-agent/.keys/nginx-log-to-bigquery-jsonkey.json
 
-  project a-know-home
-  dataset centrage_nginx_log
-  table access_log_${tag_parts[-1]}
+    project a-know-home
+    dataset centrage_nginx_log
+    table access_log_${tag_parts[-1]}
 
-  time_format %s
-  time_field time
-  schema_path /etc/td-agent/settings/nginx_access_log_schema.json
+    time_format %s
+    time_field time
+    schema_path /etc/td-agent/settings/nginx_access_log_schema.json
+  </store>
 </match>
