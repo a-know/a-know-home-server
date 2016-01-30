@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe 'web' do
+  it_behaves_like 'bigquery::settings'
   it_behaves_like 'chrony'
   it_behaves_like 'crontab'
   it_behaves_like 'firewalld::disable'

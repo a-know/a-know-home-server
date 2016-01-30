@@ -1,0 +1,16 @@
+[
+  { "name": "time",    "type": "timestamp" },
+  { "name": "host",  "type": "string"  },
+  { "name": "forwardfor",  "type": "string"  },
+  { "name": "request",  "type": "string"  },
+  { "name": "status",    "type": "integer"  },
+  { "name": "size",  "type": "integer"  },
+  { "name": "referer",  "type": "string"  },
+  { "name": "ua",    "type": "string" },
+  { "name": "reqtime",   "type": "float" },
+  { "name": "cache",    "type": "string" },
+  { "name": "runtime",   "type": "float" },
+  { "name": "vhost", "type": "string" },
+  { "name": "method",    "type": "string" },
+  { "name": "uri",    "type": "string"  }
+]

@@ -11,6 +11,7 @@
   },
 
   "run_list": [
+    "recipe[bigquery::settings]",
     "recipe[chrony]",
     "recipe[firewalld::disable]",
     "recipe[gcc]",
