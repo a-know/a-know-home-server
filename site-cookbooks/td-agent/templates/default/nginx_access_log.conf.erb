@@ -41,7 +41,8 @@
 </match>
 
 <match log.nginx.**>
-  type bigquery
+  type forest
+  subtype bigquery
   method insert
 
   auth_method json_key
