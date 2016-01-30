@@ -42,6 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     gcp.vm.provision "shell", inline: <<-SHELL
       sudo gpasswd -a circleci wheel
+      sed -i 's/^.*requiretty/#Defaults requiretty/' /etc/sudoers
     SHELL
   end
 end
