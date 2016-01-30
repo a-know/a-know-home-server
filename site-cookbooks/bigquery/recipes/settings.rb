@@ -1,3 +1,5 @@
+include_recipe 'td-agent'
+
 credentials = Chef::EncryptedDataBagItem.load('credentials', 'bigquery')
 
 directory '/etc/td-agent/.keys'
