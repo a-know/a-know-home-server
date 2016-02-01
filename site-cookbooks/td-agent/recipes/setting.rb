@@ -30,3 +30,11 @@ template '/etc/td-agent/conf.d/nginx_access_log.conf' do
   source 'nginx_access_log.conf.erb'
   notifies :restart, 'service[td-agent]'
 end
+
+cookbook_file '/etc/td-agent/conf.d/var_log.conf' do
+  owner 'root'
+  group 'root'
+  mode 0644
+  action :create
+  notifies :restart, 'service[td-agent]'
+end

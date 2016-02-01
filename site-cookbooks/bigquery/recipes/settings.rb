@@ -16,3 +16,10 @@ cookbook_file '/etc/td-agent/settings/nginx_access_log_schema.json' do
   mode     0644
   source   'nginx_access_log_schema.json'
 end
+
+cookbook_file '/etc/td-agent/settings/os.test.schema.json' do
+  user     'root'
+  group    'root'
+  mode     0644
+  source   'os.test.schema.json'
+end
