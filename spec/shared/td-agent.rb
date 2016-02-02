@@ -34,5 +34,17 @@ shared_examples 'td-agent' do
     describe package 'fluent-plugin-datacounter' do
       it { should be_installed.by('gem') }
     end
+
+    describe package 'fluent-plugin-forest' do
+      it { should be_installed.by('gem') }
+    end
+
+    describe package 'fluent-plugin-record-reformer' do
+      it { should be_installed.by('gem') }
+    end
+
+    describe package 'fluent-plugin-bigquery' do
+      it { should be_installed.by('gem') }
+    end
   end
 end
