@@ -2,7 +2,7 @@
 <source>
   type tail
   format ltsv
-  time_format %d/%b/%Y:%H:%M:%S %z
+  time_format %Y-%m-%d %H:%M:%S %z
   path /var/log/nginx/home.a-know.me.access.log
   pos_file /var/log/td-agent/home.a-know.me.access_log.pos
   tag log.nginx
@@ -60,7 +60,7 @@
       num_threads 16
 
       auto_create_table true
-      table access_log_${tag_parts[-1]}
+      table nginx_access_log_${tag_parts[-1]}
 
       time_format %s
       time_field time

@@ -1,5 +1,6 @@
 [
   { "name": "time",    "type": "timestamp" },
+  { "name": "local_time",    "type": "string" },
   { "name": "host",  "type": "string"  },
   { "name": "forwardedfor",  "type": "string"  },
   { "name": "req",  "type": "string"  },
