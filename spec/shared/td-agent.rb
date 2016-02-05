@@ -27,6 +27,12 @@ shared_examples 'td-agent' do
     it { should be_mode 644 }
   end
 
+  describe file '/etc/td-agent/conf.d/bookmark_count.conf' do
+    it { should be_owned_by 'root' }
+    it { should be_grouped_into 'root' }
+    it { should be_mode 644 }
+  end
+
   describe 'Plugins' do
     let(:path) { "/opt/td-agent/embedded/bin:#{ENV['PATH']}" }
     describe package 'fluent-plugin-slack' do
