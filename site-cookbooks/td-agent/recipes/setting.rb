@@ -35,3 +35,8 @@ cookbook_file '/etc/td-agent/conf.d/rails_production_log.conf' do
   source 'rails_production_log.conf'
   notifies :restart, 'service[td-agent]'
 end
+
+template '/etc/td-agent/conf.d/bookmark_count.conf' do
+  source 'bookmark_count.conf.erb'
+  notifies :restart, 'service[td-agent]'
+end
