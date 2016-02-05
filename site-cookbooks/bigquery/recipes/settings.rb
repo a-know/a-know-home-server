@@ -30,3 +30,10 @@ cookbook_file '/etc/td-agent/settings/bookmark_count_schema.json' do
   mode     0644
   source   'bookmark_count_schema.json'
 end
+
+cookbook_file '/etc/td-agent/settings/subscribers_count_schema.json' do
+  user     'root'
+  group    'root'
+  mode     0644
+  source   'subscribers_count_schema.json'
+end
