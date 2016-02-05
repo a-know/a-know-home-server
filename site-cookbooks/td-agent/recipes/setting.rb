@@ -37,6 +37,7 @@ cookbook_file '/etc/td-agent/conf.d/rails_production_log.conf' do
 end
 
 template '/etc/td-agent/conf.d/bookmark_count.conf' do
+  variables mackerel_api_key: mackerel_credentials['api_key'], mackerel_service_name: 'a-know-home'
   source 'bookmark_count.conf.erb'
   notifies :restart, 'service[td-agent]'
 end
