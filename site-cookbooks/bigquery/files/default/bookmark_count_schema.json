@@ -1,0 +1,4 @@
+[
+  { "name": "time",    "type": "timestamp" },
+  { "name": "count",  "type": "integer"  }
+]
