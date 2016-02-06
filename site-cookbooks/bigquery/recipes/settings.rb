@@ -6,7 +6,11 @@ directory '/etc/td-agent/.keys'
 directory '/etc/td-agent/settings'
 
 template '/etc/td-agent/.keys/gcp-credential-for-fluentd-jsonkey.json' do
-  variables private_key_id: credentials['private_key_id'], private_key: credentials['private_key'], client_id: credentials['client_id']
+  variables private_key_id: credentials['private_key_id'],
+            private_key: credentials['private_key'],
+            client_id: credentials['client_id'],
+            client_email: credentials['client_email'],
+            client_x509_cert_url: credentials['client_x509_cert_url']
   source 'gcp-credential-for-fluentd-jsonkey.json.erb'
 end
 

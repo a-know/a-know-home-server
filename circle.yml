@@ -30,6 +30,6 @@ test:
     - bundle exec knife solo bootstrap ci-web >/dev/null 2>&1
     - vagrant ssh gcp -c "sudo gpasswd -a circleci wheel"
   override:
-    - bundle exec rake spec:ci:web >/dev/null 2>&1
+    - bundle exec rake spec:ci:web
   post:
     - vagrant destroy gcp -f
