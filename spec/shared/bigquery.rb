@@ -1,5 +1,5 @@
 shared_examples 'bigquery::settings' do
-  describe file '/etc/td-agent/.keys/nginx-log-to-bigquery-jsonkey.json' do
+  describe file '/etc/td-agent/.keys/gcp-credential-for-fluentd-jsonkey.json' do
     it { should be_file }
     it { should be_owned_by 'root' }
     it { should be_grouped_into 'root' }
