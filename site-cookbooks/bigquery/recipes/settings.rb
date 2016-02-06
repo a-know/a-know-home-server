@@ -5,9 +5,13 @@ credentials = Chef::EncryptedDataBagItem.load('credentials', 'bigquery')
 directory '/etc/td-agent/.keys'
 directory '/etc/td-agent/settings'
 
-template '/etc/td-agent/.keys/nginx-log-to-bigquery-jsonkey.json' do
-  variables private_key_id: credentials['private_key_id'], private_key: credentials['private_key'], client_id: credentials['client_id']
-  source 'nginx-log-to-bigquery-jsonkey.json.erb'
+template '/etc/td-agent/.keys/gcp-credential-for-fluentd-jsonkey.json' do
+  variables private_key_id: credentials['private_key_id'],
+            private_key: credentials['private_key'],
+            client_id: credentials['client_id'],
+            client_email: credentials['client_email'],
+            client_x509_cert_url: credentials['client_x509_cert_url']
+  source 'gcp-credential-for-fluentd-jsonkey.json.erb'
 end
 
 cookbook_file '/etc/td-agent/settings/nginx_access_log_schema.json' do
