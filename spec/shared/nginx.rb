@@ -25,11 +25,4 @@ shared_examples 'nginx' do
     it { should be_mode 644 }
     its(:content) { should include 'rotate 10' }
   end
-
-  describe file '/home/a-know/growthforecast/.htpasswd' do
-    it { should be_file }
-    it { should be_owned_by 'a-know' }
-    it { should be_grouped_into 'a-know' }
-    it { should be_mode 644 }
-  end
 end
