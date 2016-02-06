@@ -1,0 +1,5 @@
+[
+  { "name": "time",    "type": "timestamp" },
+  { "name": "blog_star_count", "type": "integer"  },
+  { "name": "photo_star_count", "type": "integer"  }
+]
