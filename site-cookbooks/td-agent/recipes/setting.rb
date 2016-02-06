@@ -47,3 +47,9 @@ template '/etc/td-agent/conf.d/subscriber_count.conf' do
   source 'subscriber_count.conf.erb'
   notifies :restart, 'service[td-agent]'
 end
+
+template '/etc/td-agent/conf.d/hatena_star_count.conf' do
+  variables mackerel_api_key: mackerel_credentials['api_key'], mackerel_service_name: 'a-know-home'
+  source 'hatena_star_count.conf.erb'
+  notifies :restart, 'service[td-agent]'
+end
