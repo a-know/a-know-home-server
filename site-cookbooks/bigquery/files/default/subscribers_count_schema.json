@@ -1,0 +1,11 @@
+[
+  { "name": "time",    "type": "timestamp" },
+  { "name": "total_subscribers", "type": "integer"  },
+  { "name": "ldr_hateda", "type": "integer"  },
+  { "name": "ldr_hateblo_feed", "type": "integer"  },
+  { "name": "ldr_hateblo_rss", "type": "integer"  },
+  { "name": "feedly_hateda", "type": "integer"  },
+  { "name": "feedly_hateblo_feed", "type": "integer"  },
+  { "name": "feedly_hateblo_rss", "type": "integer"  },
+  { "name": "hateblo_subscribers", "type": "integer"  }
+]
