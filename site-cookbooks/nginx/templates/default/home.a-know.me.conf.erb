@@ -46,6 +46,18 @@ server {
       proxy_set_header Host $host/growthforecast;
     }
 
+    location ~ /blog_metricks/.+ {
+      allow 59.106.108.64/26;
+      deny all;
+      try_files $uri $uri/index.html $uri.html @unicorn;
+    }
+
+    location ~ /a_know_metricks/.+ {
+      allow 59.106.108.64/26;
+      deny all;
+      try_files $uri $uri/index.html $uri.html @unicorn;
+    }
+
     location ~ .*\.(json|js|html|less|css|eot|svg|ttf|woff|otf|scss|txt|jpg|png|gif|map|ico) {
       root /var/www/a-know-home/current/public;
     }
