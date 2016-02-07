@@ -1,0 +1,45 @@
+<match a-know-metricks.activity>
+  type copy
+  <store>
+    # BigQueryの保存先テーブルを年毎に変化させる
+    type record_reformer
+    enable_ruby true
+    tag ${tag}.${time.strftime('%Y')}
+  </store>
+</match>
+
+<match a-know-metricks.activity.**>
+  type forest
+  subtype copy
+  <template>
+    <store>
+      type bigquery
+      method insert
+
+      auth_method json_key
+      json_key /etc/td-agent/.keys/gcp-credential-for-fluentd-jsonkey.json
+
+      project a-know-home
+      dataset a_know_metricks
+
+      flush_interval 1
+      buffer_chunk_records_limit 1000
+      buffer_queue_limit 1024
+      num_threads 16
+
+      auto_create_table true
+      table activity_steps_${tag_parts[-1]}
+
+      time_format %s
+      time_field time
+      schema_path /etc/td-agent/settings/steps_schema.json
+    </store>
+    <store>
+      type mackerel
+      api_key <%= @mackerel_api_key %>
+      service <%= @mackerel_service_name %>
+      metrics_name a-know-metricks-activity.todays_steps
+      out_keys todays_steps
+    </store>
+  </template>
+</match>
