@@ -59,3 +59,9 @@ template '/etc/td-agent/conf.d/blog_active_user_number.conf' do
   source 'blog_active_user_number.conf.erb'
   notifies :restart, 'service[td-agent]'
 end
+
+template '/etc/td-agent/conf.d/a_know_activity.conf' do
+  variables mackerel_api_key: mackerel_credentials['api_key'], mackerel_service_name: 'a-know-home'
+  source 'a_know_activity.conf.erb'
+  notifies :restart, 'service[td-agent]'
+end

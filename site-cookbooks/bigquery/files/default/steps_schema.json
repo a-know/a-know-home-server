@@ -1,0 +1,4 @@
+[
+  { "name": "time",    "type": "timestamp" },
+  { "name": "todays_steps",  "type": "integer"  }
+]
