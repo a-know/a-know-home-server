@@ -16,6 +16,7 @@
     "recipe[firewalld::disable]",
     "recipe[gcc]",
     "recipe[hostname]",
+    "recipe[imagemagick]",
     "recipe[letsencrypt]",
     "recipe[logrotate]",
     "recipe[nginx]",
