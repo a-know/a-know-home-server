@@ -16,6 +16,7 @@ shared_examples 'nginx' do
     it { should be_owned_by 'root' }
     it { should be_grouped_into 'root' }
     it { should be_mode 644 }
+    its(:content) { should include '80 default_server' }
   end
 
   describe file '/etc/logrotate.d/nginx' do
