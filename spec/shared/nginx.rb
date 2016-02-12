@@ -19,6 +19,14 @@ shared_examples 'nginx' do
     its(:content) { should include '80 default_server' }
   end
 
+  describe file '/etc/nginx/conf.d/grass-graph.shitemil.works.conf' do
+    it { should be_file }
+    it { should be_owned_by 'root' }
+    it { should be_grouped_into 'root' }
+    it { should be_mode 644 }
+    its(:content) { should match /listen\s+80;/ } # not default server
+  end
+
   describe file '/etc/logrotate.d/nginx' do
     it { should be_file }
     it { should be_owned_by 'root' }
