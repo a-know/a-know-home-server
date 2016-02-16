@@ -31,6 +31,12 @@ template '/etc/td-agent/conf.d/nginx_access_log.conf' do
   notifies :restart, 'service[td-agent]'
 end
 
+template '/etc/td-agent/conf.d/grass_graph_nginx_access_log.conf' do
+  variables mackerel_api_key: mackerel_credentials['api_key'], mackerel_service_name: 'grass-graph'
+  source 'grass_graph_nginx_access_log.conf.erb'
+  notifies :restart, 'service[td-agent]'
+end
+
 cookbook_file '/etc/td-agent/conf.d/rails_production_log.conf' do
   source 'rails_production_log.conf'
   notifies :restart, 'service[td-agent]'
