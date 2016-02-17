@@ -14,4 +14,10 @@ shared_examples 'mackerel' do
     it { should be_grouped_into 'root' }
     it { should be_mode 644 }
   end
+
+  describe 'plugins' do
+    describe package 'mackerel-check-plugins' do
+      it { should be_installed }
+    end
+  end
 end
