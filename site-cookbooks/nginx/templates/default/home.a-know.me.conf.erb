@@ -23,27 +23,24 @@ server {
       try_files $uri $uri/index.html $uri.html @unicorn;
     }
 
-    location ~ /growthforecast/(css|js)/.+\.(css|js) {
-      if ($request_method !~ ^(GET|HEAD)$) {
-        return 403;
-      }
-      rewrite ^/growthforecast/(.+) /$1 break;
-      rewrite ^/growthforecast / break;
-      proxy_pass http://127.0.0.1:5125;
-      proxy_set_header Host $host/growthforecast;
+    location /testproxy.php {
+      deny all;
     }
 
-    location /growthforecast {
-      auth_basic "Secret Area";
-      auth_basic_user_file "/home/a-know/growthforecast/.htpasswd";
+    location /webdav {
+      deny all;
+    }
 
-      if ($request_method !~ ^(GET|HEAD)$) {
-        return 403;
-      }
-      rewrite ^/growthforecast/(.+) /$1 break;
-      rewrite ^/growthforecast / break;
-      proxy_pass http://127.0.0.1:5125;
-      proxy_set_header Host $host/growthforecast;
+    location /muieblackcat {
+      deny all;
+    }
+
+    location /manager/html {
+      deny all;
+    }
+
+    location ~ .*\.php {
+      deny all;
     }
 
     location ~ /blog_metricks/.+ {
