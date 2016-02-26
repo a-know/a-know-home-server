@@ -22,6 +22,9 @@ server {
     location / {
       try_files $uri $uri/index.html $uri.html @unicorn;
     }
+    location /testproxy.php {
+      deny all;
+    }
 
     location ~ /blog_metricks/.+ {
       allow 59.106.108.64/26;
