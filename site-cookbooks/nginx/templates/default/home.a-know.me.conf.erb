@@ -22,7 +22,24 @@ server {
     location / {
       try_files $uri $uri/index.html $uri.html @unicorn;
     }
+
     location /testproxy.php {
+      deny all;
+    }
+
+    location /webdav {
+      deny all;
+    }
+
+    location /muieblackcat {
+      deny all;
+    }
+
+    location /manager/html {
+      deny all;
+    }
+
+    location ~ .*\.php {
       deny all;
     }
 
