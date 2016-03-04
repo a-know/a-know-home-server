@@ -23,6 +23,8 @@ server {
     access_log /var/log/nginx/grass-graph.shitemil.works.access.log ltsv;
     error_log  /var/log/nginx/grass-graph.shitemil.works.error.log;
 
+    add_header Strict-Transport-Security "max-age=2592000; includeSubdomains";
+
     location / {
       try_files $uri $uri/index.html $uri.html @gg_unicorn;
     }

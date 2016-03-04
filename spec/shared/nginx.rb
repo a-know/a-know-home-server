@@ -29,6 +29,7 @@ shared_examples 'nginx' do
     its(:content) { should match /listen\s+80;/ } # not default server
     its(:content) { should include 'ssl_prefer_server_ciphers on' }
     its(:content) { should include 'ssl_protocols TLSv1 TLSv1.1 TLSv1.2' }
+    its(:content) { should include 'add_header Strict-Transport-Security "max-age=2592000; includeSubdomains"' }
   end
 
   describe file '/etc/logrotate.d/nginx' do
