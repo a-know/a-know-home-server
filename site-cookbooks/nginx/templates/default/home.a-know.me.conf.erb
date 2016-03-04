@@ -19,23 +19,7 @@ server {
     access_log /var/log/nginx/home.a-know.me.access.log ltsv;
     error_log  /var/log/nginx/home.a-know.me.error.log;
 
-    location / {
-      try_files $uri $uri/index.html $uri.html @unicorn;
-    }
-
-    location /testproxy.php {
-      deny all;
-    }
-
-    location /webdav {
-      deny all;
-    }
-
-    location /muieblackcat {
-      deny all;
-    }
-
-    location /manager/html {
+    location ~ /(webdav|muieblackcat|manager/html) {
       deny all;
     }
 
@@ -43,24 +27,17 @@ server {
       deny all;
     }
 
-    location ~ /blog_metricks/.+ {
+    location ~ /(blog_metricks|a_know_metricks)/.+ {
       allow 59.106.108.64/26;
       deny all;
       try_files $uri $uri/index.html $uri.html @unicorn;
     }
 
-    location ~ /a_know_metricks/.+ {
-      allow 59.106.108.64/26;
-      deny all;
-      try_files $uri $uri/index.html $uri.html @unicorn;
-    }
-
-    location ~ .*\.(json|js|html|less|css|eot|svg|ttf|woff|otf|scss|txt|jpg|png|gif|map|ico) {
+    location ~* .*\.(json|js|html|less|css|eot|svg|ttf|woff|otf|scss|txt|jpg|png|gif|map|ico) {
       root /var/www/a-know-home/current/public;
     }
 
-    location /heartbeat {
-      allow   all;
+    location / {
       try_files $uri $uri/index.html $uri.html @unicorn;
     }
 
