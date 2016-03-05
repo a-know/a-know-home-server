@@ -23,7 +23,7 @@ server {
     access_log /var/log/nginx/home.a-know.me.access.log ltsv;
     error_log  /var/log/nginx/home.a-know.me.error.log;
 
-    location ~ /(webdav|muieblackcat|manager/html) {
+    location ~ /(webdav|muieblackcat|manager/html|cgi-bin) {
       deny all;
     }
 
