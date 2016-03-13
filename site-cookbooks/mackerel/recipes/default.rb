@@ -1,6 +1,7 @@
 include_recipe 'yumrepo::mackerel'
 
 package 'mackerel-agent'
+package 'mackerel-agent-plugins'
 
 directory '/etc/mackerel-agent/conf.d'
 
