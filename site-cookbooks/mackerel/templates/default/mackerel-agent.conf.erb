@@ -48,8 +48,9 @@ apikey = "<%= @apikey %>"
 # command = "/usr/local/bin/mackerel-plugin-jvm -javaname=<required>"
 
 # Plugin for Linux
-# [plugin.metrics.linux]
-# command = "/usr/local/bin/mackerel-plugin-linux"
+[plugin.metrics.linux]
+command = "/usr/local/bin/mackerel-plugin-linux"
+type = "metric"
 
 # Plugin for Memcached
 # [plugin.metrics.memcached]
