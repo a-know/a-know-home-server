@@ -5,7 +5,7 @@
     ifempty
     sharedscripts
     rotate 7
-    su dev dev
+    su a-know a-know
     postrotate
       pid=/var/www/a-know-home/current/tmp/pids/unicorn.pid
       test -s $pid && kill -USR1 "$(cat $pid)"
