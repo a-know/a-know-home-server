@@ -2,8 +2,9 @@ GEM
   remote: https://rubygems.org/
   specs:
     builder (3.2.2)
-    chef (12.7.2)
-      chef-config (= 12.7.2)
+    chef (12.8.1)
+      bundler (>= 1.10)
+      chef-config (= 12.8.1)
       chef-zero (~> 4.5)
       diff-lcs (~> 1.2, >= 1.2.4)
       erubis (~> 2.7)
@@ -26,7 +27,7 @@ GEM
       specinfra (~> 2.10)
       syslog-logger (~> 1.6)
       uuidtools (~> 2.1.5)
-    chef-config (12.7.2)
+    chef-config (12.8.1)
       mixlib-config (~> 2.0)
       mixlib-shellout (~> 2.0)
     chef-zero (4.5.0)
@@ -67,7 +68,7 @@ GEM
       net-ssh (>= 2.6.5)
       net-ssh-gateway (>= 1.2.0)
     net-telnet (0.1.1)
-    ohai (8.10.0)
+    ohai (8.12.0)
       chef-config (>= 12.5.0.alpha.1, < 13)
       ffi (~> 1.9)
       ffi-yajl (~> 2.2)
@@ -76,6 +77,7 @@ GEM
       mixlib-config (~> 2.0)
       mixlib-log
       mixlib-shellout (~> 2.0)
+      plist
       rake (~> 10.1)
       systemu (~> 2.6.4)
       wmi-lite (~> 1.0)
@@ -87,7 +89,7 @@ GEM
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
       rspec-mocks (~> 3.4.0)
-    rspec-core (3.4.3)
+    rspec-core (3.4.4)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -102,13 +104,13 @@ GEM
     rspec_junit_formatter (0.2.3)
       builder (< 4)
       rspec-core (>= 2, < 4, != 2.12.0)
-    serverspec (2.30.1)
+    serverspec (2.31.0)
       multi_json
       rspec (~> 3.0)
       rspec-its
-      specinfra (~> 2.48)
+      specinfra (~> 2.53)
     sfl (2.2)
-    specinfra (2.53.0)
+    specinfra (2.53.1)
       net-scp
       net-ssh (>= 2.7, < 3.1)
       net-telnet
