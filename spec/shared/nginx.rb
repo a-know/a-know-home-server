@@ -9,6 +9,8 @@ shared_examples 'nginx' do
     it { should be_owned_by 'root' }
     it { should be_grouped_into 'root' }
     it { should be_mode 644 }
+    its(:content) { should match /open_file_cache .+;/ }
+    its(:content) { should include 'open_file_cache_errors on;' }
   end
 
   describe file '/etc/nginx/conf.d/home.a-know.me.conf' do
