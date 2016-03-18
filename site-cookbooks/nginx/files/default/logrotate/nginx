@@ -2,6 +2,7 @@
     daily
     missingok
     compress
+    delaycompress
     dateext
     ifempty
     sharedscripts
