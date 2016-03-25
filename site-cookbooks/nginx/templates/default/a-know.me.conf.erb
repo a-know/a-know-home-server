@@ -1,9 +1,9 @@
-upstream unicorn {
+upstream naked_unicorn {
   server unix:/var/www/a-know-home/current/tmp/sockets/unicorn.socket;
 }
 
 server {
-    listen       80 default_server;
+    listen       80;
     listen       443 ssl;
     server_name  a-know.me;
 
@@ -45,7 +45,7 @@ server {
     location ~ /(blog_metricks|a_know_metricks)/.+ {
       allow 59.106.108.64/26;
       deny all;
-      try_files $uri $uri/index.html $uri.html @unicorn;
+      try_files $uri $uri/index.html $uri.html @naked_unicorn;
     }
 
     location ~* .*\.(json|js|html|less|css|eot|svg|ttf|woff|otf|scss|txt|jpg|png|gif|map|ico) {
@@ -53,13 +53,13 @@ server {
     }
 
     location / {
-      try_files $uri $uri/index.html $uri.html @unicorn;
+      try_files $uri $uri/index.html $uri.html @naked_unicorn;
     }
 
-    location @unicorn {
+    location @naked_unicorn {
       satisfy any;
       allow   all;
-      proxy_pass http://unicorn;
+      proxy_pass http://naked_unicorn;
       proxy_set_header X-Real-IP $remote_addr;
       proxy_set_header X-Forwarded-Host $host;
       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
