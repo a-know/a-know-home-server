@@ -22,6 +22,13 @@ cookbook_file '/etc/nginx/nginx.conf' do
   notifies :reload, 'service[nginx]'
 end
 
+template '/etc/nginx/conf.d/a-know.me.conf' do
+  user     'root'
+  group    'root'
+  mode     0644
+  notifies :reload, 'service[nginx]'
+end
+
 template '/etc/nginx/conf.d/home.a-know.me.conf' do
   user     'root'
   group    'root'
