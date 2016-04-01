@@ -5,6 +5,7 @@
   time_format %Y-%m-%d %H:%M:%S %z
   path /var/log/nginx/home.a-know.me.access.log
   read_from_head true
+  rotate_wait 60
   pos_file /var/log/td-agent/home.a-know.me.access_log.pos
   tag log.nginx
 </source>
