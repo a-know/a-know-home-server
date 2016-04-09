@@ -4,6 +4,12 @@ upstream naked_unicorn {
 
 server {
     listen       80;
+    server_name  a-know.me;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen       80;
     listen       443 ssl;
     server_name  a-know.me;
 
