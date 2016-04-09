@@ -4,6 +4,11 @@ upstream unicorn {
 
 server {
     listen       80 default_server;
+    server_name  home.a-know.me;
+    return 301 https://$host$request_uri;
+}
+
+server {
     listen       443 ssl;
     server_name  home.a-know.me;
 
