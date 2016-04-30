@@ -27,7 +27,8 @@ test:
   pre:
     - vagrant up gcp --provider=google
     - vagrant ssh-config --host ci-web gcp >> ~/.ssh/config
-    - bundle exec knife solo bootstrap ci-web >/dev/null 2>&1
+    - bundle exec knife solo bootstrap ci-web >/dev/null 2>&1:
+        timeout: 1800
     - vagrant ssh gcp -c "sudo gpasswd -a circleci wheel"
   override:
     - bundle exec rake spec:ci:web
