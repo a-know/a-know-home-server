@@ -24,7 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       google.google_json_key_location = ENV['GCP_KEY_LOCATION']
 
       google.name = "ci-instance-#{Time.new.to_i}"
-      google.zone = "asia-east1-a"
+      google.zone = "us-central1-f"
       google.machine_type = "n1-standard-2"
 
       google.image = "centos-7-v20151104"
