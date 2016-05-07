@@ -15,6 +15,7 @@ describe 'web' do
   it_behaves_like 'mkswap'
   it_behaves_like 'nginx'
   it_behaves_like 'openssh'
+  it_behaves_like 'openssl-devel'
   it_behaves_like 'patch'
   it_behaves_like 'ruby'
   it_behaves_like 'selinux'
