@@ -20,6 +20,7 @@
     "recipe[letsencrypt]",
     "recipe[logrotate]",
     "recipe[nginx]",
+    "recipe[openssl-devel]",
     "recipe[openssh]",
     "recipe[patch]",
     "recipe[ruby]",
