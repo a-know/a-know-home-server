@@ -12,6 +12,7 @@ describe 'web' do
   it_behaves_like 'logrotate'
   it_behaves_like 'nginx'
   it_behaves_like 'openssh'
+  it_behaves_like 'openssl'
   it_behaves_like 'openssl-devel'
   it_behaves_like 'patch'
   it_behaves_like 'ruby'
