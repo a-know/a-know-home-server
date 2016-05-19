@@ -2,9 +2,9 @@ GEM
   remote: https://rubygems.org/
   specs:
     builder (3.2.2)
-    chef (12.9.41)
+    chef (12.10.24)
       bundler (>= 1.10)
-      chef-config (= 12.9.41)
+      chef-config (= 12.10.24)
       chef-zero (~> 4.5)
       diff-lcs (~> 1.2, >= 1.2.4)
       erubis (~> 2.7)
@@ -28,7 +28,7 @@ GEM
       specinfra (~> 2.10)
       syslog-logger (~> 1.6)
       uuidtools (~> 2.1.5)
-    chef-config (12.9.41)
+    chef-config (12.10.24)
       fuzzyurl (~> 0.8.0)
       mixlib-config (~> 2.0)
       mixlib-shellout (~> 2.0)
@@ -61,7 +61,7 @@ GEM
     mixlib-config (2.2.1)
     mixlib-log (1.6.0)
     mixlib-shellout (2.2.6)
-    multi_json (1.12.0)
+    multi_json (1.12.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -73,7 +73,7 @@ GEM
       net-ssh (>= 2.6.5)
       net-ssh-gateway (>= 1.2.0)
     net-telnet (0.1.1)
-    ohai (8.15.1)
+    ohai (8.16.0)
       chef-config (>= 12.5.0.alpha.1, < 13)
       ffi (~> 1.9)
       ffi-yajl (~> 2.2)
@@ -108,7 +108,7 @@ GEM
     rspec_junit_formatter (0.2.3)
       builder (< 4)
       rspec-core (>= 2, < 4, != 2.12.0)
-    serverspec (2.34.0)
+    serverspec (2.35.0)
       multi_json
       rspec (~> 3.0)
       rspec-its
