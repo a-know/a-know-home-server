@@ -1,3 +1,3 @@
 package 'nss' do
-  action :upgrade
+  action :install
 end
