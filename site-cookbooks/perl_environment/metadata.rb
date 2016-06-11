@@ -1,0 +1,10 @@
+name             'perl_environment'
+maintainer       'a-know'
+license          'All rights reserved'
+description      'Installs/Configures perl environment'
+long_description 'ditto' # IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version          '0.1.0'
+depends          'git'
+depends          'users'
+depends          'sudoers'
+depends          'patch'
