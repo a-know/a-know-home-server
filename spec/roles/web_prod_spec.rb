@@ -20,6 +20,7 @@ describe 'web' do
   it_behaves_like 'patch'
   it_behaves_like 'ruby'
   it_behaves_like 'selinux'
+  it_behaves_like 'stackdriver'
   it_behaves_like 'sudoers'
   it_behaves_like 'td-agent'
   it_behaves_like 'timezone'
