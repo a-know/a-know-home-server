@@ -5,9 +5,9 @@
 
   "run_list": [
     "recipe[crontab]",
-    "recipe[datadog]",
     "recipe[mackerel]",
     "recipe[mackerel::plugin]",
-    "recipe[mkswap]"
+    "recipe[mkswap]",
+    "recipe[stackdriver]"
   ]
 }
