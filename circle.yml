@@ -9,6 +9,7 @@ dependencies:
     - ~/cache
   pre:
     - |
+      curl -fsSL https://mackerel.io/assets/files/scripts/setup-apt.sh | sh; sudo apt-get install mkr
       VERSION=1.7.4
       mkdir ~/cache
       mkdir .ssh
