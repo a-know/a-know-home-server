@@ -33,7 +33,7 @@ test:
     - vagrant ssh gcp -c "sudo gpasswd -a circleci wheel"
   override:
     - |
-      mkr monitors diff -F mkr/monitors.json
+      mkr monitors diff -e -F mkr/monitors.json
       bundle exec rake spec:ci:web
   post:
     - vagrant destroy gcp -f
