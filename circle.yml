@@ -32,8 +32,6 @@ test:
         timeout: 1800
     - vagrant ssh gcp -c "sudo gpasswd -a circleci wheel"
   override:
-    - |
-      mkr monitors diff -e -F mkr/monitors.json
-      bundle exec rake spec:ci:web
+    - mkr monitors diff -e -F mkr/monitors.json && bundle exec rake spec:ci:web
   post:
     - vagrant destroy gcp -f
