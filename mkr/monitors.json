@@ -191,33 +191,6 @@
             "responseTimeWarning": 5000,
             "responseTimeDuration": 3,
             "containsString": "OK"
-        },
-        {
-            "id": "2J82rqDvFFo",
-            "name": "[blog subscribers] subscribers decrease",
-            "type": "expression",
-            "operator": "<",
-            "warning": -1e-16,
-            "critical": -1e-16,
-            "expression": "diff(service('a-know-home','custom.blog-metricks-subscribers.total_subscribers'),timeShift(service('a-know-home','custom.blog-metricks-subscribers.total_subscribers'), '15m'))"
-        },
-        {
-            "id": "2J8jAwL9BPN",
-            "name": "[bookmark count] bookmark decrease",
-            "type": "expression",
-            "operator": "<",
-            "warning": -1e-16,
-            "critical": -1e-16,
-            "expression": "diff(service('a-know-home','custom.blog-metricks-bookmark.total-count'),timeShift(service('a-know-home','custom.blog-metricks-bookmark.total-count'), '10m'))"
-        },
-        {
-            "id": "2Jg2cArnXUC",
-            "name": "[subscribers] subscribers increase",
-            "type": "expression",
-            "operator": ">",
-            "warning": 1e-20,
-            "critical": 1e-20,
-            "expression": "diff(service('a-know-home','custom.blog-metricks-subscribers.total_subscribers'),timeShift(service('a-know-home','custom.blog-metricks-subscribers.total_subscribers'), '15m'))"
         }
     ]
 }
