@@ -1,0 +1,223 @@
+{
+    "monitors": [
+        {
+            "id": "2ApwsSsV1Wu",
+            "type": "connectivity"
+        },
+        {
+            "id": "2DrEXqvKAnN",
+            "name": "logged-in user number",
+            "type": "host",
+            "metric": "custom.linux.users.users",
+            "operator": ">",
+            "warning": 2,
+            "critical": 3,
+            "duration": 1
+        },
+        {
+            "id": "2ApCqwqbDeb",
+            "name": "Filesystem %",
+            "type": "host",
+            "metric": "disk%",
+            "operator": ">",
+            "warning": 80,
+            "critical": 90,
+            "duration": 3,
+            "scopes": [
+                "a-know-home: web"
+            ],
+            "notificationInterval": 30
+        },
+        {
+            "id": "2BfHLu6GoCQ",
+            "name": "nginx access log 2xx_count",
+            "type": "service",
+            "metric": "access_num.2xx_count",
+            "operator": "<",
+            "warning": 1,
+            "critical": 1,
+            "duration": 5,
+            "service": "a-know-home",
+            "notificationInterval": 30
+        },
+        {
+            "id": "2BPpchfdef1",
+            "name": "リアルタイム訪問者数",
+            "type": "service",
+            "metric": "custom.blog-metricks-active-visitors.number",
+            "operator": ">",
+            "warning": 10,
+            "critical": 20,
+            "duration": 1,
+            "service": "a-know-home"
+        },
+        {
+            "id": "2BHCMDHGMkN",
+            "name": "[activity-metricks] todays a-know steps",
+            "type": "external",
+            "url": "https://home.a-know.me/a_know_metricks/steps",
+            "service": "a-know-home",
+            "maxCheckAttempts": 3,
+            "responseTimeCritical": 10000,
+            "responseTimeWarning": 5000,
+            "responseTimeDuration": 5
+        },
+        {
+            "id": "2BCus5idQWm",
+            "name": "[blog-metricks] bookmark-count",
+            "type": "external",
+            "url": "https://home.a-know.me/blog_metricks/bookmarks",
+            "service": "a-know-home",
+            "maxCheckAttempts": 3,
+            "responseTimeCritical": 10000,
+            "responseTimeWarning": 5000,
+            "responseTimeDuration": 5
+        },
+        {
+            "id": "2BF6UX8gdvo",
+            "name": "[blog-metricks] hatena-star-count",
+            "type": "external",
+            "url": "https://home.a-know.me/blog_metricks/hatena_stars",
+            "service": "a-know-home",
+            "maxCheckAttempts": 3,
+            "responseTimeCritical": 10000,
+            "responseTimeWarning": 5000,
+            "responseTimeDuration": 5
+        },
+        {
+            "id": "2BGzUw2d3Xj",
+            "name": "[blog-metricks] realtime visitor number",
+            "type": "external",
+            "url": "https://home.a-know.me/blog_metricks/active_visitors",
+            "service": "a-know-home",
+            "maxCheckAttempts": 3,
+            "responseTimeCritical": 10000,
+            "responseTimeWarning": 5000,
+            "responseTimeDuration": 5
+        },
+        {
+            "id": "2BDvaviimTb",
+            "name": "[blog-metricks] subscribers-count",
+            "type": "external",
+            "url": "https://home.a-know.me/blog_metricks/subscribers",
+            "service": "a-know-home",
+            "maxCheckAttempts": 3,
+            "responseTimeCritical": 10000,
+            "responseTimeWarning": 5000,
+            "responseTimeDuration": 5
+        },
+        {
+            "id": "2ApCLGMubyG",
+            "name": "[external http] a-know-home heartbeat",
+            "type": "external",
+            "url": "http://home.a-know.me/heartbeat",
+            "service": "a-know-home",
+            "maxCheckAttempts": 3,
+            "responseTimeCritical": 10000,
+            "responseTimeWarning": 5000,
+            "responseTimeDuration": 3,
+            "containsString": "OK"
+        },
+        {
+            "id": "2ApCENPZQxA",
+            "name": "[external http] a-know-home toppage",
+            "type": "external",
+            "url": "http://home.a-know.me",
+            "service": "a-know-home",
+            "maxCheckAttempts": 3,
+            "responseTimeCritical": 10000,
+            "responseTimeWarning": 5000,
+            "responseTimeDuration": 3
+        },
+        {
+            "id": "2EUai61N9PJ",
+            "name": "[external https] a-know-home heartbeat",
+            "type": "external",
+            "url": "https://home.a-know.me/heartbeat",
+            "service": "a-know-home",
+            "maxCheckAttempts": 3,
+            "responseTimeCritical": 10000,
+            "responseTimeWarning": 5000,
+            "responseTimeDuration": 3
+        },
+        {
+            "id": "2HQKsUJhGd9",
+            "name": "[external https] a-know-home naked domain",
+            "type": "external",
+            "url": "https://a-know.me",
+            "service": "a-know-home",
+            "maxCheckAttempts": 3,
+            "responseTimeCritical": 10000,
+            "responseTimeWarning": 5000,
+            "responseTimeDuration": 3,
+            "certificationExpirationCritical": 30,
+            "certificationExpirationWarning": 60
+        },
+        {
+            "id": "2EUaotwovA9",
+            "name": "[external https] a-know-home toppage",
+            "type": "external",
+            "url": "https://home.a-know.me",
+            "service": "a-know-home",
+            "maxCheckAttempts": 3,
+            "responseTimeCritical": 10000,
+            "responseTimeWarning": 5000,
+            "responseTimeDuration": 3,
+            "certificationExpirationCritical": 30,
+            "certificationExpirationWarning": 60
+        },
+        {
+            "id": "2EUaynoDhsm",
+            "name": "[external https] grass-graph toppage",
+            "type": "external",
+            "url": "https://grass-graph.shitemil.works",
+            "service": "grass-graph",
+            "maxCheckAttempts": 3,
+            "responseTimeCritical": 10000,
+            "responseTimeWarning": 5000,
+            "responseTimeDuration": 3,
+            "certificationExpirationCritical": 30,
+            "certificationExpirationWarning": 60
+        },
+        {
+            "id": "2BYYbdXAqnw",
+            "name": "[grass-graph] heartbeat",
+            "type": "external",
+            "url": "https://grass-graph.shitemil.works/heartbeat",
+            "service": "grass-graph",
+            "maxCheckAttempts": 2,
+            "notificationInterval": 30,
+            "responseTimeCritical": 10000,
+            "responseTimeWarning": 5000,
+            "responseTimeDuration": 3,
+            "containsString": "OK"
+        },
+        {
+            "id": "2J82rqDvFFo",
+            "name": "[blog subscribers] subscribers decrease",
+            "type": "expression",
+            "operator": "<",
+            "warning": -1e-16,
+            "critical": -1e-16,
+            "expression": "diff(service('a-know-home','custom.blog-metricks-subscribers.total_subscribers'),timeShift(service('a-know-home','custom.blog-metricks-subscribers.total_subscribers'), '15m'))"
+        },
+        {
+            "id": "2J8jAwL9BPN",
+            "name": "[bookmark count] bookmark decrease",
+            "type": "expression",
+            "operator": "<",
+            "warning": -1e-16,
+            "critical": -1e-16,
+            "expression": "diff(service('a-know-home','custom.blog-metricks-bookmark.total-count'),timeShift(service('a-know-home','custom.blog-metricks-bookmark.total-count'), '10m'))"
+        },
+        {
+            "id": "2Jg2cArnXUC",
+            "name": "[subscribers] subscribers increase",
+            "type": "expression",
+            "operator": ">",
+            "warning": 1e-20,
+            "critical": 1e-20,
+            "expression": "diff(service('a-know-home','custom.blog-metricks-subscribers.total_subscribers'),timeShift(service('a-know-home','custom.blog-metricks-subscribers.total_subscribers'), '15m'))"
+        }
+    ]
+}
