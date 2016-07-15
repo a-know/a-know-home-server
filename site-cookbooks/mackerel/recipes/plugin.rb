@@ -15,3 +15,10 @@ cookbook_file '/usr/local/bin/dice.rb' do
   mode '0644'
   notifies :restart, 'service[mackerel-agent]'
 end
+
+cookbook_file '/etc/mackerel-agent/conf.d/host-custom-metric-plugin.conf' do
+  owner 'root'
+  group 'root'
+  mode '0644'
+  notifies :restart, 'service[mackerel-agent]'
+end
