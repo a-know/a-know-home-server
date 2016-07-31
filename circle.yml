@@ -10,12 +10,12 @@ dependencies:
   pre:
     - |
       curl -fsSL https://mackerel.io/assets/files/scripts/setup-apt.sh | sh; sudo apt-get install mkr
-      VERSION=1.7.4
+      VERSION=1.8.5
       mkdir ~/cache
       mkdir .ssh
       cd ~/cache
       if [ ! -f vagrant_${VERSION}_x86_64.deb ]; then
-        wget https://dl.bintray.com/mitchellh/vagrant/vagrant_${VERSION}_x86_64.deb
+        wget https://releases.hashicorp.com/vagrant/${VERSION}/vagrant_${VERSION}_x86_64.deb
       fi
       sudo dpkg -i vagrant_${VERSION}_x86_64.deb
       if ! vagrant plugin list | fgrep -q vagrant-google; then
