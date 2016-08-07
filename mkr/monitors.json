@@ -52,17 +52,6 @@
             "service": "a-know-home"
         },
         {
-            "id": "2BHCMDHGMkN",
-            "name": "[activity-metricks] todays a-know steps",
-            "type": "external",
-            "url": "https://home.a-know.me/a_know_metricks/steps",
-            "service": "a-know-home",
-            "maxCheckAttempts": 3,
-            "responseTimeCritical": 10000,
-            "responseTimeWarning": 5000,
-            "responseTimeDuration": 5
-        },
-        {
             "id": "2BCus5idQWm",
             "name": "[blog-metricks] bookmark-count",
             "type": "external",
@@ -191,6 +180,26 @@
             "responseTimeWarning": 5000,
             "responseTimeDuration": 3,
             "containsString": "OK"
+        },
+        {
+            "id": "2Lb4yQ874mL",
+            "name": "test-monitor",
+            "type": "external",
+            "url": "https://home.a-know.me",
+            "service": "a-know-home",
+            "maxCheckAttempts": 1,
+            "responseTimeCritical": 10000,
+            "responseTimeWarning": 5000,
+            "responseTimeDuration": 1
+        },
+        {
+            "id": "2LbWFP7eR3y",
+            "name": "[forecast] loadavg5",
+            "type": "expression",
+            "operator": "<",
+            "warning": 15,
+            "critical": 10,
+            "expression": "scale(timeLeftForecast(host('2ApBp9M7kbh', 'loadavg5'),'1mo', 15), 1/86400)"
         }
     ]
 }
