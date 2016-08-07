@@ -30,7 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       google.image = "centos-7-v20151104"
       google.disk_size = "10"
 
-      google.preemptible = true
+      google.preemptible = false
       google.on_host_maintenance = "TERMINATE"
 
       google.auto_restart = false
