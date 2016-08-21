@@ -139,8 +139,8 @@
             "responseTimeCritical": 10000,
             "responseTimeWarning": 5000,
             "responseTimeDuration": 3,
-            "certificationExpirationCritical": 30,
-            "certificationExpirationWarning": 60
+            "certificationExpirationCritical": 15,
+            "certificationExpirationWarning": 30
         },
         {
             "id": "2EUaotwovA9",
@@ -152,8 +152,8 @@
             "responseTimeCritical": 10000,
             "responseTimeWarning": 5000,
             "responseTimeDuration": 3,
-            "certificationExpirationCritical": 30,
-            "certificationExpirationWarning": 60
+            "certificationExpirationCritical": 15,
+            "certificationExpirationWarning": 30
         },
         {
             "id": "2EUaynoDhsm",
@@ -165,8 +165,8 @@
             "responseTimeCritical": 10000,
             "responseTimeWarning": 5000,
             "responseTimeDuration": 3,
-            "certificationExpirationCritical": 30,
-            "certificationExpirationWarning": 60
+            "certificationExpirationCritical": 15,
+            "certificationExpirationWarning": 30
         },
         {
             "id": "2BYYbdXAqnw",
@@ -194,12 +194,12 @@
         },
         {
             "id": "2LbWFP7eR3y",
-            "name": "[forecast] loadavg5",
+            "name": "[forecast] fliesystem",
             "type": "expression",
             "operator": "<",
             "warning": 15,
             "critical": 10,
-            "expression": "scale(timeLeftForecast(host('2ApBp9M7kbh', 'loadavg5'),'1mo', 15), 1/86400)"
+            "expression": "scale(timeLeftForecast(host('2ApBp9M7kbh', 'fliesystem.drive.used'),'1y', 8000000000), 1/86400)"
         }
     ]
 }
