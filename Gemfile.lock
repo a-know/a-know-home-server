@@ -2,9 +2,9 @@ GEM
   remote: https://rubygems.org/
   specs:
     builder (3.2.2)
-    chef (12.13.30)
+    chef (12.13.37)
       bundler (>= 1.10)
-      chef-config (= 12.13.30)
+      chef-config (= 12.13.37)
       chef-zero (~> 4.8)
       diff-lcs (~> 1.2, >= 1.2.4)
       erubis (~> 2.7)
@@ -30,7 +30,7 @@ GEM
       specinfra (~> 2.10)
       syslog-logger (~> 1.6)
       uuidtools (~> 2.1.5)
-    chef-config (12.13.30)
+    chef-config (12.13.37)
       fuzzyurl
       mixlib-config (~> 2.0)
       mixlib-shellout (~> 2.0)
@@ -75,14 +75,14 @@ GEM
       net-ssh (>= 2.6.5)
       net-ssh-gateway (>= 1.2.0)
     net-telnet (0.1.1)
-    ohai (8.19.1)
+    ohai (8.19.2)
       chef-config (>= 12.5.0.alpha.1, < 13)
       ffi (~> 1.9)
       ffi-yajl (~> 2.2)
       ipaddress
       mixlib-cli
       mixlib-config (~> 2.0)
-      mixlib-log
+      mixlib-log (>= 1.7.1, < 2.0)
       mixlib-shellout (~> 2.0)
       plist (~> 3.1)
       systemu (~> 2.6.4)
@@ -116,7 +116,7 @@ GEM
       rspec-its
       specinfra (~> 2.53)
     sfl (2.2)
-    specinfra (2.60.4)
+    specinfra (2.61.1)
       net-scp
       net-ssh (>= 2.7, < 4.0)
       net-telnet
