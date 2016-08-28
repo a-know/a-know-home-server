@@ -60,9 +60,9 @@ GEM
     mixlib-authentication (1.4.1)
       mixlib-log
     mixlib-cli (1.7.0)
-    mixlib-config (2.2.1)
+    mixlib-config (2.2.2)
     mixlib-log (1.7.1)
-    mixlib-shellout (2.2.6)
+    mixlib-shellout (2.2.7)
     multi_json (1.12.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -116,7 +116,7 @@ GEM
       rspec-its
       specinfra (~> 2.53)
     sfl (2.2)
-    specinfra (2.61.1)
+    specinfra (2.61.2)
       net-scp
       net-ssh (>= 2.7, < 4.0)
       net-telnet
