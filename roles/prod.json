@@ -8,7 +8,6 @@
     "recipe[mackerel]",
     "recipe[mackerel::plugin]",
     "recipe[mkswap]",
-    "recipe[stackdriver]",
     "recipe[users]"
   ]
 }
