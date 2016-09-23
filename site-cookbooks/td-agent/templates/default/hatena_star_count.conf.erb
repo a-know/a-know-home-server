@@ -36,9 +36,16 @@
     </store>
     <store>
       type mackerel
+      api_key <%= @mackerel_api_key_old %>
+      service <%= @mackerel_service_name_old %>
+      metrics_name blog-metricks-hatena-star.${out_key}
+      out_keys blog_star_count,photo_star_count
+    </store>
+    <store>
+      type mackerel
       api_key <%= @mackerel_api_key %>
       service <%= @mackerel_service_name %>
-      metrics_name blog-metricks-hatena-star.${out_key}
+      metrics_name hatena-star.${out_key}
       out_keys blog_star_count,photo_star_count
     </store>
   </template>

@@ -5,8 +5,8 @@
 
   "override_attributes": {
     "ruby": {
-      "version": "2.3.0",
-      "checksum": "b74c392edb4252d21a2f50da1f8805141b2442a5cc49a6431dad0b25e9869046"
+      "version": "2.3.1",
+      "checksum": "15c4e69fa84e93555e324c1a624f66f56ac3a244427ad26e14e60e052fc7d4a6"
     }
   },
 
@@ -25,7 +25,6 @@
     "recipe[openssh]",
     "recipe[patch]",
     "recipe[ruby]",
-    "recipe[selinux::permissive]",
     "recipe[sudoers]",
     "recipe[td-agent::setting]",
     "recipe[timezone]",
