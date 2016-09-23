@@ -41,5 +41,12 @@
       metrics_name blog-metricks-active-visitors.number
       out_keys number
     </store>
+    <store>
+      type mackerel
+      api_key <%= @mackerel_api_key %>
+      service <%= @mackerel_service_name %>
+      metrics_name active-visitors.number
+      out_keys number
+    </store>
   </template>
 </match>

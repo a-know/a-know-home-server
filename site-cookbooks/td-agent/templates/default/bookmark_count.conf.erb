@@ -41,5 +41,12 @@
       metrics_name blog-metricks-bookmark.total-count
       out_keys count
     </store>
+    <store>
+      type mackerel
+      api_key <%= @mackerel_api_key %>
+      service <%= @mackerel_service_name %>
+      metrics_name hatena-bookmark.total-count
+      out_keys count
+    </store>
   </template>
 </match>

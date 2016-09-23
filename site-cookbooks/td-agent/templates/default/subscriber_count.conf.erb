@@ -41,5 +41,12 @@
       metrics_name blog-metricks-subscribers.${out_key}
       out_keys total_subscribers,ldr_hateda,ldr_hateblo_feed,ldr_hateblo_rss,feedly_hateda,feedly_hateblo_feed,feedly_hateblo_rss,hateblo_subscribers
     </store>
+    <store>
+      type mackerel
+      api_key <%= @mackerel_api_key %>
+      service <%= @mackerel_service_name %>
+      metrics_name subscribers.${out_key}
+      out_keys total_subscribers,ldr_hateda,ldr_hateblo_feed,ldr_hateblo_rss,feedly_hateda,feedly_hateblo_feed,feedly_hateblo_rss,hateblo_subscribers
+    </store>
   </template>
 </match>

@@ -41,5 +41,12 @@
       metrics_name a-know-metricks-activity.todays_steps
       out_keys todays_steps
     </store>
+    <store>
+      type mackerel
+      api_key <%= @mackerel_api_key %>
+      service <%= @mackerel_service_name %>
+      metrics_name todays_steps.count
+      out_keys todays_steps
+    </store>
   </template>
 </match>

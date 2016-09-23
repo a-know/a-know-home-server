@@ -34,12 +34,26 @@
 
 # fluent-plugin-mackerelによりサービスメトリックを投稿する
 <match nginx.status.mackerel>
-  type mackerel
-  api_key <%= @mackerel_api_key_old %>
-  service <%= @mackerel_service_name_old %>
-  remove_prefix
-  metrics_name access_num.${out_key}
-  out_keys 2xx_count,3xx_count,4xx_count,5xx_count
+  type forest
+  subtype copy
+  <template>
+    <store>
+      type mackerel
+      api_key <%= @mackerel_api_key_old %>
+      service <%= @mackerel_service_name_old %>
+      remove_prefix
+      metrics_name access_num.${out_key}
+      out_keys 2xx_count,3xx_count,4xx_count,5xx_count
+    </store>
+      <store>
+        type mackerel
+        api_key <%= @mackerel_api_key %>
+        service <%= @mackerel_service_name %>
+        remove_prefix
+        metrics_name access_num.${out_key}
+        out_keys 2xx_count,3xx_count,4xx_count,5xx_count
+      </store>
+  </template>
 </match>
 
 <match log.nginx.**>
