@@ -20,6 +20,6 @@ describe 'web' do
   it_behaves_like 'sudoers'
   it_behaves_like 'td-agent'
   it_behaves_like 'timezone'
-  it_behaves_like 'users'
+  # it_behaves_like 'users'
   it_behaves_like 'zlib'
 end
