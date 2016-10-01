@@ -1,11 +1,13 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.4.0)
     builder (3.2.2)
-    chef (12.13.37)
+    chef (12.14.77)
+      addressable
       bundler (>= 1.10)
-      chef-config (= 12.13.37)
-      chef-zero (~> 4.8)
+      chef-config (= 12.14.77)
+      chef-zero (>= 4.8)
       diff-lcs (~> 1.2, >= 1.2.4)
       erubis (~> 2.7)
       ffi-yajl (~> 2.2)
@@ -30,15 +32,16 @@ GEM
       specinfra (~> 2.10)
       syslog-logger (~> 1.6)
       uuidtools (~> 2.1.5)
-    chef-config (12.13.37)
+    chef-config (12.14.77)
+      addressable
       fuzzyurl
       mixlib-config (~> 2.0)
       mixlib-shellout (~> 2.0)
-    chef-zero (4.9.0)
+    chef-zero (5.1.0)
       ffi-yajl (~> 2.2)
       hashie (>= 2.0, < 4.0)
       mixlib-log (~> 1.3)
-      rack (< 2)
+      rack (~> 2.0)
       uuidtools (~> 2.1)
     diff-lcs (1.2.5)
     erubis (2.7.0)
@@ -46,7 +49,7 @@ GEM
     ffi-yajl (2.3.0)
       libyajl2 (~> 1.2)
     fuzzyurl (0.9.0)
-    hashie (3.4.4)
+    hashie (3.4.6)
     highline (1.7.8)
     iniparse (1.4.2)
     ipaddress (0.8.3)
@@ -89,8 +92,8 @@ GEM
       wmi-lite (~> 1.0)
     plist (3.2.0)
     proxifier (1.0.3)
-    rack (1.6.4)
-    rake (11.2.2)
+    rack (2.0.1)
+    rake (11.3.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -116,7 +119,7 @@ GEM
       rspec-its
       specinfra (~> 2.53)
     sfl (2.2)
-    specinfra (2.61.3)
+    specinfra (2.63.1)
       net-scp
       net-ssh (>= 2.7, < 4.0)
       net-telnet
