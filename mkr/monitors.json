@@ -11,7 +11,7 @@
             "metric": "custom.linux.users.users",
             "operator": ">",
             "warning": 2,
-            "critical": 3,
+            "critical": 4,
             "duration": 1
         },
         {
@@ -169,6 +169,17 @@
             "certificationExpirationWarning": 30
         },
         {
+            "id": "2NwFdHTx4N1",
+            "name": "[grass-graph] grass-graph image check",
+            "type": "external",
+            "url": "https://grass-graph.shitemil.works/images/a-know.png",
+            "service": "grass-graph",
+            "maxCheckAttempts": 2,
+            "responseTimeCritical": 10000,
+            "responseTimeWarning": 5000,
+            "responseTimeDuration": 1
+        },
+        {
             "id": "2BYYbdXAqnw",
             "name": "[grass-graph] heartbeat",
             "type": "external",
@@ -180,17 +191,6 @@
             "responseTimeWarning": 5000,
             "responseTimeDuration": 3,
             "containsString": "OK"
-        },
-        {
-            "id": "2Lb4yQ874mL",
-            "name": "test-monitor",
-            "type": "external",
-            "url": "https://home.a-know.me",
-            "service": "a-know-home",
-            "maxCheckAttempts": 1,
-            "responseTimeCritical": 10000,
-            "responseTimeWarning": 5000,
-            "responseTimeDuration": 1
         },
         {
             "id": "2LbWFP7eR3y",
