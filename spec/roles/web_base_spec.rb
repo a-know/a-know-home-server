@@ -10,6 +10,7 @@ describe 'web' do
   it_behaves_like 'imagemagick'
   it_behaves_like 'letsencrypt'
   it_behaves_like 'logrotate'
+  it_behaves_like 'mkr'
   it_behaves_like 'nginx'
   it_behaves_like 'openssh'
   it_behaves_like 'openssl'

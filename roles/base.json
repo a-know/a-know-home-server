@@ -19,6 +19,7 @@
     "recipe[imagemagick]",
     "recipe[letsencrypt]",
     "recipe[logrotate]",
+    "recipe[mkr]",
     "recipe[nginx]",
     "recipe[openssl]",
     "recipe[openssl-devel]",

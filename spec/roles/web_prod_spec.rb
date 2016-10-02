@@ -12,6 +12,7 @@ describe 'web' do
   it_behaves_like 'letsencrypt'
   it_behaves_like 'logrotate'
   it_behaves_like 'mackerel'
+  it_behaves_like 'mkr'
   it_behaves_like 'mkswap'
   it_behaves_like 'nginx'
   it_behaves_like 'openssh'
