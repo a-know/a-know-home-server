@@ -118,4 +118,7 @@ type = "metric"
 # [plugin.metrics.curl]
 # command = "ruby /etc/sensu/plugins/http/metrics-curl.rb"
 
+[plugin.metrics.nginx_proc_sum]
+command = "echo -e \"proc_sum.nginx\t$(ps -f -u nginx | grep worker | grep -v grep | wc -l)\t$(date -u +%s)\""
+
 include = "/etc/mackerel-agent/conf.d/*.conf"
