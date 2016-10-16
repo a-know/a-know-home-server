@@ -3,10 +3,10 @@ GEM
   specs:
     addressable (2.4.0)
     builder (3.2.2)
-    chef (12.14.89)
+    chef (12.15.19)
       addressable
       bundler (>= 1.10)
-      chef-config (= 12.14.89)
+      chef-config (= 12.15.19)
       chef-zero (>= 4.8)
       diff-lcs (~> 1.2, >= 1.2.4)
       erubis (~> 2.7)
@@ -32,7 +32,7 @@ GEM
       specinfra (~> 2.10)
       syslog-logger (~> 1.6)
       uuidtools (~> 2.1.5)
-    chef-config (12.14.89)
+    chef-config (12.15.19)
       addressable
       fuzzyurl
       mixlib-config (~> 2.0)
@@ -113,13 +113,13 @@ GEM
     rspec_junit_formatter (0.2.3)
       builder (< 4)
       rspec-core (>= 2, < 4, != 2.12.0)
-    serverspec (2.36.1)
+    serverspec (2.37.2)
       multi_json
       rspec (~> 3.0)
       rspec-its
       specinfra (~> 2.53)
     sfl (2.3)
-    specinfra (2.63.2)
+    specinfra (2.63.3)
       net-scp
       net-ssh (>= 2.7, < 4.0)
       net-telnet
