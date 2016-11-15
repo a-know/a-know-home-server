@@ -1,12 +1,13 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.4.0)
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
     builder (3.2.2)
-    chef (12.15.19)
+    chef (12.16.42)
       addressable
       bundler (>= 1.10)
-      chef-config (= 12.15.19)
+      chef-config (= 12.16.42)
       chef-zero (>= 4.8)
       diff-lcs (~> 1.2, >= 1.2.4)
       erubis (~> 2.7)
@@ -32,7 +33,7 @@ GEM
       specinfra (~> 2.10)
       syslog-logger (~> 1.6)
       uuidtools (~> 2.1.5)
-    chef-config (12.15.19)
+    chef-config (12.16.42)
       addressable
       fuzzyurl
       mixlib-config (~> 2.0)
@@ -92,6 +93,7 @@ GEM
       wmi-lite (~> 1.0)
     plist (3.2.0)
     proxifier (1.0.3)
+    public_suffix (2.0.4)
     rack (2.0.1)
     rake (11.3.0)
     rspec (3.5.0)
@@ -119,7 +121,7 @@ GEM
       rspec-its
       specinfra (~> 2.53)
     sfl (2.3)
-    specinfra (2.63.3)
+    specinfra (2.66.0)
       net-scp
       net-ssh (>= 2.7, < 4.0)
       net-telnet
