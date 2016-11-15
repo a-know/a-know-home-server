@@ -1,10 +1,6 @@
 {
     "monitors": [
         {
-            "id": "2ApwsSsV1Wu",
-            "type": "connectivity"
-        },
-        {
             "id": "2DrEXqvKAnN",
             "name": "logged-in user number",
             "type": "host",
@@ -29,6 +25,11 @@
             "notificationInterval": 30
         },
         {
+            "id": "2ApwsSsV1Wu",
+            "name": "connectivity",
+            "type": "connectivity"
+        },
+        {
             "id": "2BfHLu6GoCQ",
             "name": "nginx access log 2xx_count",
             "type": "service",
@@ -46,8 +47,8 @@
             "type": "service",
             "metric": "custom.blog-metricks-active-visitors.number",
             "operator": ">",
-            "warning": 10,
-            "critical": 20,
+            "warning": 15,
+            "critical": 25,
             "duration": 1,
             "service": "a-know-home"
         },
