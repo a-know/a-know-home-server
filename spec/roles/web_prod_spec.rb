@@ -9,6 +9,7 @@ describe 'web' do
   it_behaves_like 'git'
   it_behaves_like 'hostname'
   it_behaves_like 'imagemagick'
+  it_behaves_like 'sysstat'
   it_behaves_like 'letsencrypt'
   it_behaves_like 'logrotate'
   it_behaves_like 'mackerel'
