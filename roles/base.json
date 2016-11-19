@@ -17,6 +17,7 @@
     "recipe[gcc]",
     "recipe[hostname]",
     "recipe[imagemagick]",
+    "recipe[sysstat]",
     "recipe[letsencrypt]",
     "recipe[logrotate]",
     "recipe[mkr]",
