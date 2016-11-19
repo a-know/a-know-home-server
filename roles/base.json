@@ -21,6 +21,7 @@
     "recipe[letsencrypt]",
     "recipe[logrotate]",
     "recipe[mkr]",
+    "recipe[net-tools]",
     "recipe[nginx]",
     "recipe[openssl]",
     "recipe[openssl-devel]",
