@@ -42,17 +42,6 @@
             "notificationInterval": 30
         },
         {
-            "id": "2BPpchfdef1",
-            "name": "リアルタイム訪問者数",
-            "type": "service",
-            "metric": "custom.blog-metricks-active-visitors.number",
-            "operator": ">",
-            "warning": 15,
-            "critical": 25,
-            "duration": 1,
-            "service": "a-know-home"
-        },
-        {
             "id": "2BCus5idQWm",
             "name": "[blog-metricks] bookmark-count",
             "type": "external",

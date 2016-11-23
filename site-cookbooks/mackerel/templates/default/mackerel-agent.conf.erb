@@ -13,6 +13,8 @@ apikey = "<%= @apikey %>"
 # Configuration for Custm Metrics Plugins
 # see also: http://help-ja.mackerel.io/entry/advanced/custom-metrics
 
+include = "/etc/mackerel-agent/conf.d/*.conf"
+
 # followings are mackerel-agent-plugins https://github.com/mackerelio/mackerel-agent-plugins
 
 # Plugin for Apache2 mod_status
@@ -120,5 +122,3 @@ type = "metric"
 
 [plugin.metrics.nginx_proc_sum]
 command = "echo -e \"proc_sum.nginx\t$(ps -f -u nginx | grep worker | grep -v grep | wc -l)\t$(date -u +%s)\""
-
-include = "/etc/mackerel-agent/conf.d/*.conf"
