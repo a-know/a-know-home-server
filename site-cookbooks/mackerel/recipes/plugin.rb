@@ -22,3 +22,10 @@ cookbook_file '/etc/mackerel-agent/conf.d/mackerel-plugin-fluentd.conf' do
   mode '0644'
   notifies :restart, 'service[mackerel-agent]'
 end
+
+cookbook_file '/etc/mackerel-agent/conf.d/mackerel-plugin-nginx.conf' do
+  owner 'root'
+  group 'root'
+  mode '0644'
+  notifies :restart, 'service[mackerel-agent]'
+end
