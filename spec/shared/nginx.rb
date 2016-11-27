@@ -11,6 +11,8 @@ shared_examples 'nginx' do
     it { should be_mode 644 }
     its(:content) { should match /open_file_cache .+;/ }
     its(:content) { should include 'open_file_cache_errors on;' }
+    its(:content) { should include 'location /nginx_status' }
+    its(:content) { should include 'stub_status on' }
   end
 
   describe file '/etc/nginx/conf.d/a-know.me.conf' do
