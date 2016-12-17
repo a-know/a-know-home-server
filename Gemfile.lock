@@ -4,10 +4,10 @@ GEM
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
     builder (3.2.2)
-    chef (12.16.42)
+    chef (12.17.44)
       addressable
       bundler (>= 1.10)
-      chef-config (= 12.16.42)
+      chef-config (= 12.17.44)
       chef-zero (>= 4.8)
       diff-lcs (~> 1.2, >= 1.2.4)
       erubis (~> 2.7)
@@ -33,12 +33,12 @@ GEM
       specinfra (~> 2.10)
       syslog-logger (~> 1.6)
       uuidtools (~> 2.1.5)
-    chef-config (12.16.42)
+    chef-config (12.17.44)
       addressable
       fuzzyurl
       mixlib-config (~> 2.0)
       mixlib-shellout (~> 2.0)
-    chef-zero (5.1.0)
+    chef-zero (5.1.1)
       ffi-yajl (~> 2.2)
       hashie (>= 2.0, < 4.0)
       mixlib-log (~> 1.3)
@@ -121,7 +121,7 @@ GEM
       rspec-its
       specinfra (~> 2.53)
     sfl (2.3)
-    specinfra (2.66.2)
+    specinfra (2.66.3)
       net-scp
       net-ssh (>= 2.7, < 4.0)
       net-telnet
