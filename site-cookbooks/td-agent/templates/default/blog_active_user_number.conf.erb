@@ -1,8 +1,10 @@
 <match blog-metricks.active-visitors>
   type copy
+  id active_visitors_copy
   <store>
     # BigQueryの保存先テーブルを年毎に変化させる
     type record_reformer
+    id active_visitors_reformer
     enable_ruby true
     tag ${tag}.${time.strftime('%Y')}
   </store>
@@ -11,9 +13,11 @@
 <match blog-metricks.active-visitors.**>
   type forest
   subtype copy
+  id active_visitors_forest
   <template>
     <store>
       type bigquery
+      id active_visitors_bigquery
       method insert
 
       auth_method json_key
@@ -36,6 +40,7 @@
     </store>
     <store>
       type mackerel
+      id active_visitors_mackerel_old
       api_key <%= @mackerel_api_key_old %>
       service <%= @mackerel_service_name_old %>
       metrics_name blog-metricks-active-visitors.number
@@ -43,6 +48,7 @@
     </store>
     <store>
       type mackerel
+      id active_visitors_mackerel
       api_key <%= @mackerel_api_key %>
       service <%= @mackerel_service_name %>
       metrics_name active-visitors.number
