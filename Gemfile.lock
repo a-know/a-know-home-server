@@ -50,7 +50,7 @@ GEM
     ffi-yajl (2.3.0)
       libyajl2 (~> 1.2)
     fuzzyurl (0.9.0)
-    hashie (3.5.1)
+    hashie (3.5.3)
     highline (1.7.8)
     iniparse (1.4.2)
     ipaddress (0.8.3)
@@ -121,7 +121,7 @@ GEM
       rspec-its
       specinfra (~> 2.53)
     sfl (2.3)
-    specinfra (2.66.8)
+    specinfra (2.67.0)
       net-scp
       net-ssh (>= 2.7, < 5.0)
       net-telnet
