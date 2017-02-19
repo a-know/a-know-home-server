@@ -55,10 +55,3 @@ cookbook_file '/etc/td-agent/settings/active_visitors_count_schema.json' do
   mode     0644
   source   'active_visitors_count_schema.json'
 end
-
-cookbook_file '/etc/td-agent/settings/steps_schema.json' do
-  user     'root'
-  group    'root'
-  mode     0644
-  source   'steps_schema.json'
-end
