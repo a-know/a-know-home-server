@@ -1,8 +1,10 @@
 <match blog-metricks.bookmark>
   type copy
+  id bookmark_copy
   <store>
     # BigQueryの保存先テーブルを年毎に変化させる
     type record_reformer
+    id bookmark_reformer
     enable_ruby true
     tag ${tag}.${time.strftime('%Y')}
   </store>
@@ -11,9 +13,11 @@
 <match blog-metricks.bookmark.**>
   type forest
   subtype copy
+  id bookmark_forest
   <template>
     <store>
       type bigquery
+      id bookmark_bigquery
       method insert
 
       auth_method json_key
@@ -36,6 +40,7 @@
     </store>
     <store>
       type mackerel
+      id bookmark_mackerel
       api_key <%= @mackerel_api_key_old %>
       service <%= @mackerel_service_name_old %>
       metrics_name blog-metricks-bookmark.total-count
@@ -43,6 +48,7 @@
     </store>
     <store>
       type mackerel
+      id bookmark_mackerel
       api_key <%= @mackerel_api_key %>
       service <%= @mackerel_service_name %>
       metrics_name hatena-bookmark.total-count

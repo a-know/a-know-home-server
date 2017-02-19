@@ -12,6 +12,7 @@ shared_examples 'td-agent' do
     it { should be_owned_by 'root' }
     it { should be_grouped_into 'root' }
     it { should be_mode 644 }
+    its(:content) { should include 'id monitor_agent_metric' }
     its(:content) { should include '@include /etc/td-agent/conf.d/*.conf' }
   end
 
