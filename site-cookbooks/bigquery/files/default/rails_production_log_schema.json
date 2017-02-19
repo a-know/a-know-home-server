@@ -1,5 +1,7 @@
 [
   { "name": "time",    "type": "timestamp" },
   { "name": "level",  "type": "string"  },
-  { "name": "message",  "type": "string"  }
+  { "name": "message",  "type": "string"  },
+  { "name": "hostname",    "type": "string"  },
+  { "name": "id",    "type": "string"  }
 ]
