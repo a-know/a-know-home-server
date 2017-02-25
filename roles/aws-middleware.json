@@ -1,0 +1,34 @@
+{
+  "name": "base-software",
+  "description": "base software role",
+  "json_class": "Chef::Role",
+
+  "override_attributes": {
+    "ruby": {
+      "version": "2.3.1",
+      "checksum": "15c4e69fa84e93555e324c1a624f66f56ac3a244427ad26e14e60e052fc7d4a6"
+    }
+  },
+
+  "run_list": [
+    "recipe[chrony]",
+    "recipe[firewalld::disable]",
+    "recipe[gcc]",
+    "recipe[git]",
+    "recipe[hostname]",
+    "recipe[imagemagick]",
+    "recipe[sysstat]",
+    "recipe[letsencrypt]",
+    "recipe[logrotate]",
+    "recipe[mkr]",
+    "recipe[net-tools]",
+    "recipe[openssl]",
+    "recipe[openssl-devel]",
+    "recipe[openssh]",
+    "recipe[patch]",
+    "recipe[ruby]",
+    "recipe[selinux::permissive]",
+    "recipe[timezone]",
+    "recipe[zlib::devel]"
+  ]
+}

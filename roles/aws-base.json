@@ -1,0 +1,10 @@
+{
+  "name": "aws-base",
+  "description": "aws base role",
+  "json_class": "Chef::Role",
+
+  "run_list": [
+    "recipe[sudoers]",
+    "recipe[users]"
+  ]
+}

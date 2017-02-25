@@ -1,0 +1,14 @@
+{
+  "hostname_attr": {
+    "hostname": "centrage-blue01"
+  },
+  "instance_kind": {
+    "color": "blue"
+  },
+  "run_list": [
+    "role[aws-base]",
+    "role[aws-middleware]",
+    "role[aws-application]",
+    "role[aws-prod]"
+  ]
+}
