@@ -186,7 +186,7 @@
           "Target": "HTTP:80/",
           "HealthyThreshold": "3",
           "UnhealthyThreshold": "5",
-          "Interval": "30",
+          "Interval": "300",
           "Timeout": "5"
         },
         "AccessLoggingPolicy": {
