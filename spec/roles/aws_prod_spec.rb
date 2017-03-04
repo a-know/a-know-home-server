@@ -11,5 +11,6 @@ describe 'web' do
   it_behaves_like 'git'
   it_behaves_like 'hostname'
   it_behaves_like 'imagemagick'
+  it_behaves_like 'logrotate'
 
 end
