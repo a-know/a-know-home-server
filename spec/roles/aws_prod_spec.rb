@@ -22,5 +22,6 @@ describe 'web' do
   it_behaves_like 'selinux'
   it_behaves_like 'sysstat'
   it_behaves_like 'timezone'
+  it_behaves_like 'zlib'
 
 end
