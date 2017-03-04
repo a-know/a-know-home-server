@@ -6,6 +6,9 @@ server {
     listen       80;
     server_name  a-know.shitemil.works;
 
+    set_real_ip_from 10.0.0.0/8; # ELBのIPが複数あるのでまとめて指定
+    real_ip_header  X-Forwarded-For;
+
     root /var/www/a-know-home/current/public;
 
     access_log /var/log/nginx/a-know.shitemil.works.access.log ltsv;
