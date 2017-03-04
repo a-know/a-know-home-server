@@ -6,5 +6,6 @@ describe 'web' do
   it_behaves_like 'users'
   # aws-middleware
   it_behaves_like 'chrony'
+  it_behaves_like 'firewalld::disable'
 
 end
