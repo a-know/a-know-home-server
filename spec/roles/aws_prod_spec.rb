@@ -31,4 +31,5 @@ describe 'web' do
   it_behaves_like 'crond'
   it_behaves_like 'crontab'
   it_behaves_like 'mackerel'
+  it_behaves_like 'mkswap'
 end
