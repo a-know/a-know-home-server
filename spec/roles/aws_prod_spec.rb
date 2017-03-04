@@ -30,4 +30,5 @@ describe 'web' do
   # aws-prod
   it_behaves_like 'crond'
   it_behaves_like 'crontab'
+  it_behaves_like 'mackerel'
 end
