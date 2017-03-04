@@ -17,16 +17,16 @@
     "recipe[git]",
     "recipe[hostname]",
     "recipe[imagemagick]",
-    "recipe[sysstat]",
     "recipe[logrotate]",
     "recipe[mkr]",
     "recipe[net-tools]",
+    "recipe[openssh]",
     "recipe[openssl]",
     "recipe[openssl-devel]",
-    "recipe[openssh]",
     "recipe[patch]",
     "recipe[ruby]",
     "recipe[selinux::permissive]",
+    "recipe[sysstat]",
     "recipe[timezone]",
     "recipe[zlib::devel]"
   ]
