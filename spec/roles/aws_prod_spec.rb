@@ -20,5 +20,6 @@ describe 'web' do
   it_behaves_like 'patch'
   it_behaves_like 'ruby'
   it_behaves_like 'selinux'
+  it_behaves_like 'sysstat'
 
 end
