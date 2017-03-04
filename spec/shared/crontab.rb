@@ -1,7 +1,6 @@
 shared_examples 'crontab' do
   describe cron do
-    it { should have_entry('00 4 25 * * /usr/local/bin/certbot/certbot-auto certonly --webroot -w /var/www/a-know-home/shared/public -d a-know.me --renew-by-default --non-interactive && sudo nginx -s reload').with_user('root') }
-    it { should have_entry('00 4 15 * * /usr/local/bin/certbot/certbot-auto certonly --webroot -w /var/www/a-know-home/shared/public -d home.a-know.me --renew-by-default --non-interactive && sudo nginx -s reload').with_user('root') }
-    it { should have_entry('00 4 10 * * /usr/local/bin/certbot/certbot-auto certonly --webroot -w /var/www/a-know-home/shared/public -d grass-graph.shitemil.works --renew-by-default --non-interactive && sudo nginx -s reload').with_user('root') }
+    echo_cmd = 'echo -e "grass-graph.images.count\t$(ls -1 /var/www/a-know-home/shared/tmp/gg_others_svg/${d} | wc -l)\t$(date -u +\\%s)"'
+    it { should have_entry("*/15 * * * * export MACKEREL_APIKEY=#{ENV['NEW_MACKEREL_APIKEY']} && d=`date '+\\%Y-\\%m-\\%d'` && #{echo_cmd} | /usr/local/bin/mkr throw --service grass-graph").with_user('root') }
   end
 end
