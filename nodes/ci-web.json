@@ -1,9 +1,13 @@
 {
   "hostname_attr": {
-    "hostname": "ci-centrage"
+    "hostname": "ci-centrage-blue99"
+  },
+  "instance_kind": {
+    "color": "blue"
   },
   "run_list": [
-    "role[base]",
-    "role[vm]"
+    "role[aws-base]",
+    "role[aws-middleware]",
+    "role[aws-application]"
   ]
 }

@@ -10,7 +10,7 @@ hosts = [
   {
     name:       [ 'ci-web' ],
     short_name: 'ci:web',
-    role:       'web_base',
+    role:       'aws_ci',
   },
   {
     name:       [ 'blue01', 'green01' ],
