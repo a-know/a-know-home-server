@@ -23,5 +23,7 @@ describe 'web' do
   it_behaves_like 'sysstat'
   it_behaves_like 'timezone'
   it_behaves_like 'zlib'
+  # aws-application
+  it_behaves_like 'bigquery::settings'
 
 end

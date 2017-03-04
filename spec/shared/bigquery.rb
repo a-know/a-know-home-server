@@ -13,41 +13,43 @@ shared_examples 'bigquery::settings' do
     it { should be_owned_by 'root' }
     it { should be_grouped_into 'root' }
     it { should be_mode 644 }
+    its(:content) { should include "id" }
+    its(:content) { should include "hostname" }
   end
   describe file '/etc/td-agent/settings/rails_production_log_schema.json' do
     it { should be_file }
     it { should be_owned_by 'root' }
     it { should be_grouped_into 'root' }
     it { should be_mode 644 }
+    its(:content) { should include "id" }
+    its(:content) { should include "hostname" }
   end
   describe file '/etc/td-agent/settings/bookmark_count_schema.json' do
     it { should be_file }
     it { should be_owned_by 'root' }
     it { should be_grouped_into 'root' }
     it { should be_mode 644 }
+    its(:content) { should include "id" }
   end
   describe file '/etc/td-agent/settings/subscribers_count_schema.json' do
     it { should be_file }
     it { should be_owned_by 'root' }
     it { should be_grouped_into 'root' }
     it { should be_mode 644 }
+    its(:content) { should include "id" }
   end
   describe file '/etc/td-agent/settings/hatena_star_count_schema.json' do
     it { should be_file }
     it { should be_owned_by 'root' }
     it { should be_grouped_into 'root' }
     it { should be_mode 644 }
+    its(:content) { should include "id" }
   end
   describe file '/etc/td-agent/settings/active_visitors_count_schema.json' do
     it { should be_file }
     it { should be_owned_by 'root' }
     it { should be_grouped_into 'root' }
     it { should be_mode 644 }
-  end
-  describe file '/etc/td-agent/settings/steps_schema.json' do
-    it { should be_file }
-    it { should be_owned_by 'root' }
-    it { should be_grouped_into 'root' }
-    it { should be_mode 644 }
+    its(:content) { should include "id" }
   end
 end
