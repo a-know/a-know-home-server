@@ -9,5 +9,6 @@ describe 'web' do
   it_behaves_like 'firewalld::disable'
   it_behaves_like 'gcc'
   it_behaves_like 'git'
+  it_behaves_like 'hostname'
 
 end
