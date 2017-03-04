@@ -7,5 +7,7 @@ describe 'web' do
   # aws-middleware
   it_behaves_like 'chrony'
   it_behaves_like 'firewalld::disable'
+  it_behaves_like 'gcc'
+  it_behaves_like 'git'
 
 end
