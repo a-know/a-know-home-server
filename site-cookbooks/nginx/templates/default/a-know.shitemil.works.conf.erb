@@ -14,11 +14,6 @@ server {
     access_log /var/log/nginx/a-know.shitemil.works.access.log ltsv;
     error_log  /var/log/nginx/a-know.shitemil.works.error.log;
 
-    location /.well-known {
-      default_type "text/plain";
-      root /var/www/a-know-home/shared/public;
-    }
-
     location ~ /(webdav|muieblackcat|manager/html|cgi-bin) {
       deny all;
     }

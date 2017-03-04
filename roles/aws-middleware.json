@@ -18,7 +18,6 @@
     "recipe[hostname]",
     "recipe[imagemagick]",
     "recipe[sysstat]",
-    "recipe[letsencrypt]",
     "recipe[logrotate]",
     "recipe[mkr]",
     "recipe[net-tools]",
