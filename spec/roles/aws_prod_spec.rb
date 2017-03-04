@@ -26,5 +26,6 @@ describe 'web' do
   # aws-application
   it_behaves_like 'bigquery::settings'
   it_behaves_like 'nginx::aws'
+  it_behaves_like 'td-agent'
 
 end
