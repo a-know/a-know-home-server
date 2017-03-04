@@ -34,11 +34,11 @@ server {
     }
 
     location ~* .*\.(json|js|html|less|css|eot|svg|ttf|woff|otf|scss|txt|jpg|png|gif|map|ico) {
-      root /var/www/a-know-home/current/public;
+      rewrite ^(.*)$ https://home.a-know.me/ redirect;
     }
 
     location / {
-      try_files $uri $uri/index.html $uri.html @unicorn;
+      rewrite ^(.*)$ https://home.a-know.me/ redirect;
     }
 
     location @unicorn {
