@@ -1,4 +1,8 @@
 shared_examples 'logrotate' do
+  describe package 'logrotate' do
+    it { should be_installed }
+  end
+
   describe file '/etc/logrotate.d/app' do
     it { should be_file }
     it { should be_owned_by 'root' }

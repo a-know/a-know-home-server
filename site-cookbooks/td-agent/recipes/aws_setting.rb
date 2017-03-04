@@ -1,7 +1,7 @@
 include_recipe 'td-agent'
 data_bag = Chef::EncryptedDataBagItem.load('webhook_urls', 'knock')
 mackerel_credentials = Chef::EncryptedDataBagItem.load('credentials', 'mackerel')
-
+color = node[:instance_kind][:color]
 
 %w(
   fluent-plugin-slack
@@ -30,14 +30,14 @@ end
 
 directory '/etc/td-agent/conf.d'
 
-template '/etc/td-agent/conf.d/home_nginx_access_log.conf' do
-  variables mackerel_api_key_old: mackerel_credentials['api_key_old'], mackerel_service_name_old: 'a-know-home', mackerel_api_key: mackerel_credentials['api_key'], mackerel_service_name: 'home_a-know_me'
-  source 'nginx_access_log.conf.erb'
+template '/etc/td-agent/conf.d/admin_shitemil_nginx_access_log.conf' do
+  variables mackerel_api_key: mackerel_credentials['api_key'], mackerel_service_name: 'a-know_shitemil_works', color: color
+  source 'admin_shitemil_nginx_access_log.conf.erb'
   notifies :restart, 'service[td-agent]'
 end
 
 template '/etc/td-agent/conf.d/grass_graph_nginx_access_log.conf' do
-  variables mackerel_api_key_old: mackerel_credentials['api_key_old'], mackerel_service_name_old: 'grass-graph', mackerel_api_key: mackerel_credentials['api_key'], mackerel_service_name: 'grass-graph'
+  variables mackerel_api_key: mackerel_credentials['api_key'], mackerel_service_name: 'grass-graph', color: color
   source 'grass_graph_nginx_access_log.conf.erb'
   notifies :restart, 'service[td-agent]'
 end

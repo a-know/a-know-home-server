@@ -16,8 +16,8 @@ bash 'Install openssl-1.0.2h' do
   ./config --prefix=#{dest_dir} shared
   make install
   cp /usr/bin/openssl /usr/bin/openssl.old
-  rm -f /usr/bin/openssl
-  ln -s #{dest_dir}/bin/openssl /usr/bin/openssl
+  sudo rm -f /usr/bin/openssl
+  sudo ln -s #{dest_dir}/bin/openssl /usr/bin/openssl
   EOC
   creates "#{dest_dir}/lib/libssl.so"
 end

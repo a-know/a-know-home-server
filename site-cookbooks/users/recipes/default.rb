@@ -17,6 +17,8 @@ data_ids.each do |id|
   end
 
   directory u['home'] do
+    owner u['uid']
+    group u['gid']
     mode 0755
     action :create
   end

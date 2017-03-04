@@ -3,19 +3,19 @@ require 'rspec/core/rake_task'
 
 hosts = [
   {
-    name:       'vm-web',
+    name:       [ 'vm-web' ],
     short_name: 'vm:web',
     role:       'web_base',
   },
   {
-    name:       'ci-web',
+    name:       [ 'ci-web' ],
     short_name: 'ci:web',
-    role:       'web_base',
+    role:       'aws_ci',
   },
   {
-    name:       'home.a-know.me',
-    short_name: 'prod:web',
-    role:       'web_prod',
+    name:       [ 'blue01', 'green01' ],
+    short_name: 'prod:aws',
+    role:       'aws_prod',
   },
 ]
 
@@ -32,10 +32,12 @@ namespace :spec do
   desc "Run serverspec to all hosts"
   task :all => hosts.map {|h| 'spec:' + h[:short_name] }
   hosts.each do |host|
-    desc "Run serverspec to #{host[:name]}"
-    ServerspecTask.new(host[:short_name].to_sym) do |t|
-      t.target = host[:name]
-      t.pattern = "spec/roles/#{host[:role]}_spec.rb"
+    host[:name].each do |hostname|
+      desc "Run serverspec to #{hostname}"
+      ServerspecTask.new(host[:short_name].to_sym) do |t|
+        t.target = hostname
+        t.pattern = "spec/roles/#{host[:role]}_spec.rb"
+      end
     end
   end
 end

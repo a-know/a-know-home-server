@@ -1,6 +1,7 @@
 # LTSV形式のログファイルを読み込む
 <source>
   type tail
+  id home_nginx_access_log_tail
   format ltsv
   time_format %Y-%m-%d %H:%M:%S %z
   path /var/log/nginx/home.a-know.me.access.log
@@ -12,63 +13,71 @@
 
 <match log.nginx>
   type copy
+  id home_nginx_access_log_copy
   <store>
-    # BigQueryの保存先テーブルを月毎に変化させる
+    # BigQueryの保存先テーブルを日毎に変化させる
     type record_reformer
+    id home_nginx_access_log_reformer
     enable_ruby true
-    tag ${tag}.${time.strftime('%Y%m')}
+    tag ${tag}.${time.strftime('%Y%m%d')}
   </store>
-  <store>
-    # fluent-plugin-datacounterでステータスコード別に集計する
-    type datacounter
-    count_interval 1m
-    count_key status
-    aggregate all
-    tag nginx.status.mackerel
-    pattern1 2xx ^2\d\d$
-    pattern2 3xx ^3\d\d$
-    pattern3 4xx ^4\d\d$
-    pattern4 5xx ^5\d\d$
-  </store>
+#  <store>
+#    # fluent-plugin-datacounterでステータスコード別に集計する
+#    type datacounter
+#    id home_nginx_access_log_datacounter
+#    count_interval 1m
+#    count_key status
+#    aggregate all
+#    tag nginx.status.mackerel
+#    pattern1 2xx ^2\d\d$
+#    pattern2 3xx ^3\d\d$
+#    pattern3 4xx ^4\d\d$
+#    pattern4 5xx ^5\d\d$
+#  </store>
 </match>
 
 # fluent-plugin-mackerelによりサービスメトリックを投稿する
-<match nginx.status.mackerel>
-  type forest
-  subtype copy
-  <template>
-    <store>
-      type mackerel
-      api_key <%= @mackerel_api_key_old %>
-      service <%= @mackerel_service_name_old %>
-      remove_prefix
-      metrics_name access_num.${out_key}
-      out_keys 2xx_count,3xx_count,4xx_count,5xx_count
-    </store>
-      <store>
-        type mackerel
-        api_key <%= @mackerel_api_key %>
-        service <%= @mackerel_service_name %>
-        remove_prefix
-        metrics_name access_num.${out_key}
-        out_keys 2xx_count,3xx_count,4xx_count,5xx_count
-      </store>
-  </template>
-</match>
+# <match nginx.status.mackerel>
+#   type forest
+#   subtype copy
+#   id home_nginx_access_log_forest
+#   <template>
+#     <store>
+#       type mackerel
+#       id home_nginx_access_log_mackerel_old
+#       api_key <%= @mackerel_api_key_old %>
+#       service <%= @mackerel_service_name_old %>
+#       remove_prefix
+#       metrics_name access_num.${out_key}
+#       out_keys 2xx_count,3xx_count,4xx_count,5xx_count
+#     </store>
+#       <store>
+#         type mackerel
+#         id home_nginx_access_log_mackerel
+#         api_key <%= @mackerel_api_key %>
+#         service <%= @mackerel_service_name %>
+#         remove_prefix
+#         metrics_name access_num.${out_key}
+#         out_keys 2xx_count,3xx_count,4xx_count,5xx_count
+#       </store>
+#   </template>
+# </match>
 
 <match log.nginx.**>
   type forest
   subtype copy
+  id home_nginx_forest
   <template>
     <store>
       type bigquery
+      id home_nginx_bigquery
       method insert
 
       auth_method json_key
       json_key /etc/td-agent/.keys/gcp-credential-for-fluentd-jsonkey.json
 
       project a-know-home
-      dataset centrage_nginx_log
+      dataset aws_centrage_nginx_log
 
       flush_interval 1
       buffer_chunk_records_limit 1000
@@ -76,7 +85,7 @@
       num_threads 16
 
       auto_create_table true
-      table nginx_access_log_${tag_parts[-1]}
+      table home_nginx_access_log_${tag_parts[-1]}
 
       time_format %s
       time_field time

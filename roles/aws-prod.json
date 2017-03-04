@@ -1,0 +1,12 @@
+{
+  "name": "aws-prod",
+  "description": "aws prod role",
+  "json_class": "Chef::Role",
+
+  "run_list": [
+    "recipe[crontab]",
+    "recipe[mackerel]",
+    "recipe[mackerel::plugin]",
+    "recipe[mkswap]"
+  ]
+}

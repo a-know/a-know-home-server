@@ -1,6 +1,6 @@
 shared_examples 'hostname' do
   describe file '/etc/hostname' do
-    its(:content) { should include 'centrage' }
+    its(:content) { should match /blue\d+|green\d+/ }
   end
 
   describe file '/etc/profile.d/network.sh' do

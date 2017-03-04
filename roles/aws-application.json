@@ -1,0 +1,11 @@
+{
+  "name": "base-app",
+  "description": "base application role",
+  "json_class": "Chef::Role",
+
+  "run_list": [
+    "recipe[bigquery::settings]",
+    "recipe[nginx::aws]",
+    "recipe[td-agent::aws_setting]"
+  ]
+}

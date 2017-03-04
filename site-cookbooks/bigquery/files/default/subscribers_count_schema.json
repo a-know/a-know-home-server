@@ -7,5 +7,6 @@
   { "name": "feedly_hateda", "type": "integer"  },
   { "name": "feedly_hateblo_feed", "type": "integer"  },
   { "name": "feedly_hateblo_rss", "type": "integer"  },
-  { "name": "hateblo_subscribers", "type": "integer"  }
+  { "name": "hateblo_subscribers", "type": "integer"  },
+  { "name": "id", "type": "string"  }
 ]

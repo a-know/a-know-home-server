@@ -22,12 +22,6 @@ shared_examples 'td-agent' do
     its(:content) { should include 'service grass-graph' }
   end
 
-  describe file '/etc/td-agent/conf.d/nginx_access_log.conf' do
-    it { should be_owned_by 'root' }
-    it { should be_grouped_into 'root' }
-    it { should be_mode 644 }
-  end
-
   describe file '/etc/td-agent/conf.d/rails_production_log.conf' do
     it { should be_owned_by 'root' }
     it { should be_grouped_into 'root' }
@@ -58,12 +52,6 @@ shared_examples 'td-agent' do
     it { should be_mode 644 }
   end
 
-  describe file '/etc/td-agent/conf.d/a_know_activity.conf' do
-    it { should be_owned_by 'root' }
-    it { should be_grouped_into 'root' }
-    it { should be_mode 644 }
-  end
-
   describe 'Plugins' do
     let(:path) { "/opt/td-agent/embedded/bin:#{ENV['PATH']}" }
     describe package 'fluent-plugin-slack' do
@@ -75,7 +63,7 @@ shared_examples 'td-agent' do
     end
 
     describe package 'fluent-plugin-datacounter' do
-      it { should be_installed.by('gem') }
+      it { should be_installed.by('gem').with_version('0.5.0') }
     end
 
     describe package 'fluent-plugin-forest' do
