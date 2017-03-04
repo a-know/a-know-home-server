@@ -12,5 +12,12 @@ describe 'web' do
   it_behaves_like 'hostname'
   it_behaves_like 'imagemagick'
   it_behaves_like 'logrotate'
+  it_behaves_like 'mkr'
+  it_behaves_like 'net-tools'
+  it_behaves_like 'openssh'
+  it_behaves_like 'openssl'
+  it_behaves_like 'openssl-devel'
+  it_behaves_like 'patch'
+  it_behaves_like 'ruby'
 
 end
