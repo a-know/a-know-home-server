@@ -1,6 +1,6 @@
 shared_examples 'ruby' do
   describe package 'ruby' do
-    it { should be_installed.with_version '2.3.1' }
+    it { should be_installed.with_version '2.4.0' }
   end
 
   describe package 'bundler' do
