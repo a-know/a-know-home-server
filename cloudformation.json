@@ -133,37 +133,6 @@
         "VpcId" : { "Ref" : "MainVPC" }
       }
     },
-    "BluePublicEC2Instance": {
-      "Type" : "AWS::EC2::Instance",
-      "Properties" : {
-        "ImageId" : "ami-eec1c380",
-        "InstanceType" : "t2.micro",
-        "KeyName" : "for-new-aws",
-        "Tags" : [
-          { "Key" : "Name", "Value" : "Web（青）" }
-        ],
-        "NetworkInterfaces": [
-          {
-            "AssociatePublicIpAddress": "true",
-            "DeviceIndex": "0",
-            "DeleteOnTermination" : "true",
-            "PrivateIpAddress" : "10.0.1.10",
-            "SubnetId": { "Ref" : "BluePublicSubnet" },
-            "GroupSet": [ { "Ref" : "SecurityGroupForPublic" } ]
-          }
-        ],
-        "BlockDeviceMappings" : [
-          {
-            "DeviceName" : "/dev/xvda",
-            "Ebs" : {
-               "VolumeType" : "standard",
-               "DeleteOnTermination" : "true",
-               "VolumeSize" : "30"
-            }
-          }
-        ]
-      }
-    },
     "BluePublicEC2Instance02": {
       "Type" : "AWS::EC2::Instance",
       "Properties" : {
@@ -181,37 +150,6 @@
             "PrivateIpAddress" : "10.0.1.11",
             "SubnetId": { "Ref" : "BluePublicSubnet" },
             "GroupSet": [ { "Ref" : "SecurityGroupForPublic" } ]
-          }
-        ]
-      }
-    },
-    "GreenPublicEC2Instance": {
-      "Type" : "AWS::EC2::Instance",
-      "Properties" : {
-        "ImageId" : "ami-eec1c380",
-        "InstanceType" : "t2.micro",
-        "KeyName" : "for-new-aws",
-        "Tags" : [
-          { "Key" : "Name", "Value" : "Web（緑）" }
-        ],
-        "NetworkInterfaces": [
-          {
-            "AssociatePublicIpAddress": "true",
-            "DeviceIndex": "0",
-            "DeleteOnTermination" : "true",
-            "PrivateIpAddress" : "10.0.2.10",
-            "SubnetId": { "Ref" : "GreenPublicSubnet" },
-            "GroupSet": [ { "Ref" : "SecurityGroupForPublic" } ]
-          }
-        ],
-        "BlockDeviceMappings" : [
-          {
-            "DeviceName" : "/dev/xvda",
-            "Ebs" : {
-               "VolumeType" : "standard",
-               "DeleteOnTermination" : "true",
-               "VolumeSize" : "30"
-            }
           }
         ]
       }
