@@ -1,17 +1,17 @@
 include_recipe 'openssl-devel'
 
 work_dir = '/usr/local/src'
-dest_dir = '/usr/local/openssl-1.0.2h'
+dest_dir = '/usr/local/openssl-1.0.2k'
 
-cookbook_file "#{work_dir}/openssl-1.0.2h.tar.gz" do
+cookbook_file "#{work_dir}/openssl-1.0.2k.tar.gz" do
   action :create_if_missing
 end
 
-bash 'Install openssl-1.0.2h' do
+bash 'Install openssl-1.0.2k' do
   cwd work_dir
   code <<-EOC
-  tar xzf openssl-1.0.2h.tar.gz
-  cd openssl-1.0.2h
+  tar xzf openssl-1.0.2k.tar.gz
+  cd openssl-1.0.2k
   export LD_RUN_PATH=#{dest_dir}/lib
   ./config --prefix=#{dest_dir} shared
   make install
