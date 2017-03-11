@@ -35,3 +35,10 @@ cookbook_file '/etc/mackerel-agent/instance_meta_data.rb' do
   group 'root'
   mode '0644'
 end
+
+cookbook_file '/etc/mackerel-agent/conf.d/metadata-plugins.conf' do
+  owner 'root'
+  group 'root'
+  mode '0644'
+  notifies :restart, 'service[mackerel-agent]'
+end
