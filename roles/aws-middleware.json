@@ -5,8 +5,8 @@
 
   "override_attributes": {
     "ruby": {
-      "version": "2.3.1",
-      "checksum": "15c4e69fa84e93555e324c1a624f66f56ac3a244427ad26e14e60e052fc7d4a6"
+      "version": "2.4.0",
+      "checksum": "cd0bd4e7eb8a767f44394c3cb7ebefbfb0386193898e51e533dd525da2ddcdb3"
     }
   },
 
