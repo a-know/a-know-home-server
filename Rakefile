@@ -13,7 +13,7 @@ hosts = [
     role:       'aws_ci',
   },
   {
-    name:       [ 'blue02', 'green02' ],
+    name:       [ 'centrage-blue02', 'centrage-green02' ],
     short_name: 'prod:aws',
     role:       'aws_prod',
   },
