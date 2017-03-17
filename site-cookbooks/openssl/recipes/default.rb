@@ -1,5 +1,8 @@
 include_recipe 'openssl-devel'
 
+package 'openssl'
+
+# yum で入る openssl は古いバージョンのため手動で最新のものと入れ替える
 work_dir = '/usr/local/src'
 dest_dir = '/usr/local/openssl-1.0.2k'
 
