@@ -1,0 +1,48 @@
+{
+  "builders":[
+    {
+      "type": "docker",
+      "image": "centos:centos7",
+      "export_path": "image.tar"
+    }
+  ],
+  "provisioners":[
+    {
+      "type": "shell",
+      "inline": [
+          "yum -y update",
+          "yum install -y sudo which make"
+      ]
+    },
+    {
+      "type": "chef-solo",
+      "cookbook_paths": ["site-cookbooks"],
+      "run_list": [
+        "gcc",
+        "git",
+        "imagemagick",
+        "openssl",
+        "openssl-devel",
+        "patch",
+        "ruby",
+        "zlib::devel"
+      ],
+      "json": {
+        "instance_kind": {
+          "color": "container"
+        },
+        "ruby": {
+          "version": "2.4.0",
+          "checksum": "cd0bd4e7eb8a767f44394c3cb7ebefbfb0386193898e51e533dd525da2ddcdb3"
+        }
+      }
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "docker-import",
+      "repository": "a-know/a-know-server-container-base",
+      "tag": "0.1.0"
+    }
+  ]
+}
