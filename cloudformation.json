@@ -154,6 +154,37 @@
         ]
       }
     },
+    "BluePublicEC2Instance01": {
+      "Type" : "AWS::EC2::Instance",
+      "Properties" : {
+        "ImageId" : "ami-eec1c380",
+        "InstanceType" : "t2.micro",
+        "KeyName" : "for-new-aws",
+        "Tags" : [
+          { "Key" : "Name", "Value" : "Web（青・Ruby2.4.0・SSD）" }
+        ],
+        "BlockDeviceMappings" : [
+          {
+            "DeviceName" : "/dev/sda1",
+            "Ebs" : {
+              "DeleteOnTermination" : true,
+              "VolumeSize" : "10",
+              "VolumeType" : "gp2"
+            }
+          }
+        ],
+        "NetworkInterfaces": [
+          {
+            "AssociatePublicIpAddress": "true",
+            "DeviceIndex": "0",
+            "DeleteOnTermination" : "true",
+            "PrivateIpAddress" : "10.0.1.10",
+            "SubnetId": { "Ref" : "BluePublicSubnet" },
+            "GroupSet": [ { "Ref" : "SecurityGroupForPublic" } ]
+          }
+        ]
+      }
+    },
     "GreenPublicEC2Instance02": {
       "Type" : "AWS::EC2::Instance",
       "Properties" : {
@@ -169,6 +200,37 @@
             "DeviceIndex": "0",
             "DeleteOnTermination" : "true",
             "PrivateIpAddress" : "10.0.2.11",
+            "SubnetId": { "Ref" : "GreenPublicSubnet" },
+            "GroupSet": [ { "Ref" : "SecurityGroupForPublic" } ]
+          }
+        ]
+      }
+    },
+    "GreenPublicEC2Instance01": {
+      "Type" : "AWS::EC2::Instance",
+      "Properties" : {
+        "ImageId" : "ami-eec1c380",
+        "InstanceType" : "t2.micro",
+        "KeyName" : "for-new-aws",
+        "Tags" : [
+          { "Key" : "Name", "Value" : "Web（緑・Ruby2.4.0・SSD）" }
+        ],
+        "BlockDeviceMappings" : [
+          {
+            "DeviceName" : "/dev/sda1",
+            "Ebs" : {
+              "DeleteOnTermination" : true,
+              "VolumeSize" : "10",
+              "VolumeType" : "gp2"
+            }
+          }
+        ],
+        "NetworkInterfaces": [
+          {
+            "AssociatePublicIpAddress": "true",
+            "DeviceIndex": "0",
+            "DeleteOnTermination" : "true",
+            "PrivateIpAddress" : "10.0.2.10",
             "SubnetId": { "Ref" : "GreenPublicSubnet" },
             "GroupSet": [ { "Ref" : "SecurityGroupForPublic" } ]
           }
