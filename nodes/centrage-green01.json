@@ -1,9 +1,9 @@
 {
   "hostname_attr": {
-    "hostname": "centrage-green02"
+    "hostname": "centrage-green01"
   },
   "instance_kind": {
-    "color": "green02"
+    "color": "green01"
   },
   "run_list": [
     "role[aws-base]",
