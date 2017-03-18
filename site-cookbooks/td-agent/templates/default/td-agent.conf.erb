@@ -7,6 +7,11 @@
 
 <source>
   type forward
+  buffer_path /var/log/td-agent/buffer/fluent.*.buffer     #バッファデータの出力先ファイルパス
+  buffer_chunk_limit 3k     #1chunkに保存できるデータサイズ上限
+  buffer_queue_limit 3      #1queueに保存できるchunk数の上限
+  retry_wait 30s   #再送を実行するまでの待ち時間
+  retry_limit 5    #再送実施回数
   id source_forward
 </source>
 
