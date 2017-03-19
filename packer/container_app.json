@@ -33,13 +33,6 @@
         "type": "docker-tag",
         "repository": "{{user `ecr_repo`}}",
         "tag": "{{user `tag`}}"
-      },
-      {
-        "type": "docker-push",
-        "ecr_login": true,
-        "aws_access_key": "{{user `aws_access_key`}}",
-        "aws_secret_key": "{{user `aws_secret_key`}}",
-        "login_server": "{{user `ecr_url`}}"
       }
     ]
   ]
