@@ -1,0 +1,5 @@
+app:
+  image: 384252233704.dkr.ecr.ap-northeast-1.amazonaws.com/a-know-server-container-app:0.0.1
+  command: /bin/bash
+  volumes_from:
+    - a-know-home-dataonly

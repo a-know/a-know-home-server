@@ -1,0 +1,6 @@
+FROM centos:centos7
+MAINTAINER a-know
+
+RUN yum install -y httpd
+
+ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]
