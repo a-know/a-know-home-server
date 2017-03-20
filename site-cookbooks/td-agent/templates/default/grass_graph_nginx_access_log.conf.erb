@@ -55,39 +55,35 @@
 
 <match gg.log.nginx.**>
   type forest
-  subtype copy
+  subtype bigquery
   id gg_log_nginx_forest
   <template>
-    <store>
-      type bigquery
-      id gg_log_nginx_bigquery
-      method insert
+    method insert
 
-      auth_method json_key
-      json_key /etc/td-agent/.keys/gcp-credential-for-fluentd-jsonkey.json
+    auth_method json_key
+    json_key /etc/td-agent/.keys/gcp-credential-for-fluentd-jsonkey.json
 
-      project a-know-home
-      dataset aws_centrage_nginx_log
+    project a-know-home
+    dataset aws_centrage_nginx_log
 
-      flush_interval 1
-      buffer_chunk_records_limit 1000
-      buffer_queue_limit 1024
-      num_threads 16
+    flush_interval 1
+    buffer_chunk_records_limit 1000
+    buffer_queue_limit 1024
+    num_threads 16
 
-      auto_create_table true
-      table gg_nginx_access_log_${tag_parts[-1]}
+    auto_create_table true
+    table gg_nginx_access_log_${tag_parts[-1]}
 
-      time_format %s
-      time_field time
-      # scheme は home.a-know.me の access log と同じなので使い回す
-      schema_path /etc/td-agent/settings/nginx_access_log_schema.json
-      
-      buffer_type file
-      buffer_path /var/log/td-agent/buffer/fluent.gg_log_nginx_forest*.buffer     #バッファデータの出力先ファイルパス
-      buffer_chunk_limit 3k     #1chunkに保存できるデータサイズ上限
-      buffer_queue_limit 3      #1queueに保存できるchunk数の上限
-      retry_wait 30s   #再送を実行するまでの待ち時間
-      retry_limit 5    #再送実施回数
-    </store>
+    time_format %s
+    time_field time
+    # scheme は home.a-know.me の access log と同じなので使い回す
+    schema_path /etc/td-agent/settings/nginx_access_log_schema.json
+
+    buffer_type file
+    buffer_path /var/log/td-agent/buffer/fluent.gg_log_nginx_forest*.buffer     #バッファデータの出力先ファイルパス
+    buffer_chunk_limit 3k     #1chunkに保存できるデータサイズ上限
+    buffer_queue_limit 3      #1queueに保存できるchunk数の上限
+    retry_wait 30s   #再送を実行するまでの待ち時間
+    retry_limit 5    #再送実施回数
   </template>
 </match>
