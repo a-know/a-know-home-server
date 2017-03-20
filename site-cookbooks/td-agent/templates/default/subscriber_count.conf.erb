@@ -18,12 +18,6 @@
     <store>
       type bigquery
       id subscribers_bigquery
-      buffer_type file
-      buffer_path /var/log/td-agent/buffer/fluent.subscribers_bigquery*.buffer     #バッファデータの出力先ファイルパス
-      buffer_chunk_limit 3k     #1chunkに保存できるデータサイズ上限
-      buffer_queue_limit 3      #1queueに保存できるchunk数の上限
-      retry_wait 30s   #再送を実行するまでの待ち時間
-      retry_limit 5    #再送実施回数
       method insert
 
       auth_method json_key
@@ -43,6 +37,13 @@
       time_format %s
       time_field time
       schema_path /etc/td-agent/settings/subscribers_count_schema.json
+      
+      buffer_type file
+      buffer_path /var/log/td-agent/buffer/fluent.subscribers_bigquery*.buffer     #バッファデータの出力先ファイルパス
+      buffer_chunk_limit 3k     #1chunkに保存できるデータサイズ上限
+      buffer_queue_limit 3      #1queueに保存できるchunk数の上限
+      retry_wait 30s   #再送を実行するまでの待ち時間
+      retry_limit 5    #再送実施回数
     </store>
     <store>
       type mackerel
