@@ -58,6 +58,7 @@
   subtype bigquery
   id gg_log_nginx_forest
   <template>
+    id gg_log_nginx_forest_template
     method insert
 
     auth_method json_key
@@ -80,7 +81,7 @@
     schema_path /etc/td-agent/settings/nginx_access_log_schema.json
 
     buffer_type file
-    buffer_path /var/log/td-agent/buffer/fluent.gg_log_nginx_forest*.buffer     #バッファデータの出力先ファイルパス
+    buffer_path /var/log/td-agent/buffer/fluent.gg_log_nginx_forest_${tag_parts[-1]}.buffer     #バッファデータの出力先ファイルパス
     buffer_chunk_limit 3k     #1chunkに保存できるデータサイズ上限
     buffer_queue_limit 3      #1queueに保存できるchunk数の上限
     retry_wait 30s   #再送を実行するまでの待ち時間
