@@ -15,6 +15,7 @@
   subtype copy
   id subscribers_forest
   <template>
+    id subscribers_forest_template
     <store>
       type bigquery
       id subscribers_bigquery
@@ -37,7 +38,7 @@
       time_format %s
       time_field time
       schema_path /etc/td-agent/settings/subscribers_count_schema.json
-      
+
       buffer_type file
       buffer_path /var/log/td-agent/buffer/fluent.subscribers_bigquery*.buffer     #バッファデータの出力先ファイルパス
       buffer_chunk_limit 3k     #1chunkに保存できるデータサイズ上限
