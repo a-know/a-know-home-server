@@ -148,19 +148,19 @@
             "IpProtocol" : "tcp",
             "FromPort" : "80",
             "ToPort" : "80",
-            "CidrIp" : "0.0.0.0/0"
+            "SourceSecurityGroupId" : { "Ref" : "SecurityGroupForLb" }
           },
           {
             "IpProtocol" : "tcp",
             "FromPort" : "443",
             "ToPort" : "443",
-            "CidrIp" : "0.0.0.0/0"
+            "SourceSecurityGroupId" : { "Ref" : "SecurityGroupForLb" }
           },
           {
             "IpProtocol" : "icmp",
             "FromPort" : "-1",
             "ToPort" : "-1",
-            "CidrIp" : "0.0.0.0/0"
+            "SourceSecurityGroupId" : { "Ref" : "SecurityGroupForLb" }
           }
         ],
         "Tags" :  [ { "Key" : "Name", "Value" : "WEB-SG" } ],
