@@ -99,6 +99,40 @@
         "GatewayId" : { "Ref" : "MainIGW" }
       }
     },
+    "SecurityGroupForLb": {
+      "Type" : "AWS::EC2::SecurityGroup",
+      "Properties" : {
+        "GroupDescription" : "SecurityGroup for load balancer",
+        "SecurityGroupIngress" : [
+          {
+             "IpProtocol" : "tcp",
+             "FromPort" : "22",
+             "ToPort" : "22",
+             "CidrIp" : "0.0.0.0/0"
+          },
+          {
+            "IpProtocol" : "tcp",
+            "FromPort" : "80",
+            "ToPort" : "80",
+            "CidrIp" : "0.0.0.0/0"
+          },
+          {
+            "IpProtocol" : "tcp",
+            "FromPort" : "443",
+            "ToPort" : "443",
+            "CidrIp" : "0.0.0.0/0"
+          },
+          {
+            "IpProtocol" : "icmp",
+            "FromPort" : "-1",
+            "ToPort" : "-1",
+            "CidrIp" : "0.0.0.0/0"
+          }
+        ],
+        "Tags" :  [ { "Key" : "Name", "Value" : "LB-SG" } ],
+        "VpcId" : { "Ref" : "MainVPC" }
+      }
+    },
     "SecurityGroupForPublic": {
       "Type" : "AWS::EC2::SecurityGroup",
       "Properties" : {
@@ -199,7 +233,7 @@
       "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
       "Properties": {
         "Scheme": "internet-facing",
-        "SecurityGroups": [ { "Ref" : "SecurityGroupForPublic" } ],
+        "SecurityGroups": [ { "Ref" : "SecurityGroupForLb" } ],
         "LoadBalancerName" : "ElasticLoadBalancer",
         "Subnets" : [ { "Ref" : "BluePublicSubnet" }, { "Ref" : "GreenPublicSubnet" } ],
         "Instances" : [ { "Ref" : "BluePublicEC2Instance01" }, { "Ref" : "GreenPublicEC2Instance01" } ],
