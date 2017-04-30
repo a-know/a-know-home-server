@@ -17,6 +17,11 @@ hosts = [
     short_name: 'prod:aws',
     role:       'aws_prod',
   },
+  {
+    name:       [ 'web-vm' ],
+    short_name: 'web:vm',
+    role:       'web_vm',
+  },
 ]
 
 class ServerspecTask < RSpec::Core::RakeTask
