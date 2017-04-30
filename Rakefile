@@ -18,9 +18,9 @@ hosts = [
     role:       'aws_prod',
   },
   {
-    name:       [ 'web-vm' ],
-    short_name: 'web:vm',
-    role:       'web_vm',
+    name:       [ 'docker-vm' ],
+    short_name: 'docker:vm',
+    role:       'docker_vm',
   },
 ]
 
