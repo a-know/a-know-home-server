@@ -1,0 +1,8 @@
+{
+  "hostname_attr": {
+    "hostname": "centrage-vm01"
+  },
+  "run_list": [
+    "role[docker-base]"
+  ]
+}
