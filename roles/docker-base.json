@@ -5,6 +5,7 @@
 
   "run_list": [
     "recipe[docker::engine]",
+    "recipe[docker::compose]",
     "recipe[sudoers]",
     "recipe[users]"
   ]
