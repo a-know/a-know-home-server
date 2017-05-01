@@ -25,7 +25,7 @@ data_ids.each do |id|
 
   next unless u['authorized_keys']
 
-  [ "#{u['home']}/.ssh", "#{u['home']}/.aws" ].each do |dir|
+  [ "#{u['home']}/.ssh", "#{u['home']}/.aws", "#{u['home']}/.docker" ].each do |dir|
     directory dir do
       owner u['uid']
       group u['gid']
