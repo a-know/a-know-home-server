@@ -7,6 +7,7 @@
     "recipe[awscli]",
     "recipe[docker::engine]",
     "recipe[docker::compose]",
+    "recipe[docker::credential_helper]",
     "recipe[pip]",
     "recipe[sudoers]",
     "recipe[users]"
