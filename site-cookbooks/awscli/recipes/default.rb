@@ -12,5 +12,5 @@ awscli_credentials = Chef::EncryptedDataBagItem.load('credentials', 'awscli')
 
 template '/home/a-know/.aws/credentials' do
   mode '0600'
-  variables aws_access_key_id: awscli_credentials['aws_access_key_id'], aws_secret_access_key:['aws_secret_access_key']
+  variables aws_access_key_id: awscli_credentials['aws_access_key_id'], aws_secret_access_key: awscli_credentials['aws_secret_access_key']
 end
