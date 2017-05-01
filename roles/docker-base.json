@@ -8,6 +8,7 @@
     "recipe[docker::engine]",
     "recipe[docker::compose]",
     "recipe[docker::credential_helper]",
+    "recipe[docker::images]",
     "recipe[pip]",
     "recipe[sudoers]",
     "recipe[users]"

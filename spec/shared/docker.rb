@@ -32,4 +32,8 @@ shared_examples 'docker' do
     its(:content) { should include '"credsStore": "ecr-login"' }
     it { should be_mode 600 }
   end
+
+  describe command('docker images') do
+    its(:stdout) { should match /384252233704\.dkr\.ecr\.ap-northeast-1\.amazonaws\.com\/a-know-server-container-app/ }
+  end
 end
