@@ -7,4 +7,9 @@ shared_examples 'aws' do
   describe command('aws --version') do
     its(:stdout) { should match /aws-cli\/1\.11\.82/ }
   end
+
+  describe file '/home/a-know/.aws/credentials' do
+    it { should be_file }
+    it { should be_mode 600 }
+  end
 end
