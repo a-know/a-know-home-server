@@ -13,6 +13,16 @@
       "us-gov-west-1":  { "AccountID": "048591011584" }
     }
   },
+  "Parameters" : {
+    "ECRReadOnlyIAMUserPassword" : {
+      "NoEcho" : "true",
+      "Type" : "String",
+      "Description" : "Password for ECR Readonly IAM User",
+      "MinLength" : "12",
+      "MaxLength" : "24",
+      "ConstraintDescription" : "the password must be between 12 and 24 characters"
+    }
+  },
   "Resources" : {
     "ECRReadOnlyIAMGroup" : {
        "Type": "AWS::IAM::Group",
@@ -43,6 +53,21 @@
             }
           ]
        }
+    },
+    "ECRReadOnlyIAMUser" : {
+      "Type": "AWS::IAM::User",
+      "Properties" : {
+        "LoginProfile" : {
+          "Password" : { "Ref" : "ECRReadOnlyIAMUserPassword" }
+        }
+      }
+    },
+    "IAMUserToGroupAddition" : {
+      "Type": "AWS::IAM::UserToGroupAddition",
+      "Properties" : {
+        "GroupName" : "ECRReadOnlyIAMGroup",
+        "Users" : [{ "Ref" : "ECRReadOnlyIAMUser" }]
+      }
     },
     "MainVPC" : {
       "Type" : "AWS::EC2::VPC",
