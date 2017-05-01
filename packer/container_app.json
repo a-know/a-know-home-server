@@ -1,0 +1,39 @@
+{
+  "variables": {
+    "ecr_repo": "{{env `APP_CONTAINER_ECR_REPO`}}",
+    "ecr_url": "{{env `ECR_URL`}}",
+    "aws_access_key": "{{env `AWS_ACCESS_KEY`}}",
+    "aws_secret_key": "{{env `AWS_SECRET_KEY`}}",
+    "tag": "0.0.1"
+  },
+  "builders":[
+    {
+      "type": "docker",
+      "image": "384252233704.dkr.ecr.ap-northeast-1.amazonaws.com/a-know-server-container:0.1.0",
+      "export_path": "image.tar"
+    }
+  ],
+  "provisioners":[
+    {
+      "type": "shell",
+      "inline": [
+          "mkdir -p /var/www/a-know-home/current",
+          "git clone https://github.com/a-know/a-know-home-rails.git /var/www/a-know-home/current"
+      ]
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "docker-import",
+        "repository": "a-know/a-know-server-container-app",
+        "tag": "{{user `tag`}}"
+      },
+      {
+        "type": "docker-tag",
+        "repository": "{{user `ecr_repo`}}",
+        "tag": "{{user `tag`}}"
+      }
+    ]
+  ]
+}

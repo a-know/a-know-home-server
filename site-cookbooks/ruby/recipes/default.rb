@@ -1,4 +1,5 @@
 include_recipe 'libyaml'
+include_recipe 'openssl'
 
 version        = node[:ruby][:version]
 distro_version = node[:platform_version] =~ /\A7\./ ? 'el7.centos' : 'el6'
