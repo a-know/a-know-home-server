@@ -93,7 +93,7 @@ GEM
       plist (~> 3.1)
       systemu (~> 2.6.4)
       wmi-lite (~> 1.0)
-    plist (3.2.0)
+    plist (3.3.0)
     proxifier (1.0.3)
     public_suffix (2.0.5)
     rack (2.0.1)
@@ -123,7 +123,7 @@ GEM
       rspec-its
       specinfra (~> 2.53)
     sfl (2.3)
-    specinfra (2.67.8)
+    specinfra (2.67.9)
       net-scp
       net-ssh (>= 2.7, < 5.0)
       net-telnet
@@ -140,6 +140,7 @@ DEPENDENCIES
   knife-solo
   rake
   serverspec
+
 
 BUNDLED WITH
    1.11.2
