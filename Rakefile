@@ -17,6 +17,11 @@ hosts = [
     short_name: 'prod:aws',
     role:       'aws_prod',
   },
+  {
+    name:       [ 'docker-vm' ],
+    short_name: 'docker:vm',
+    role:       'docker_vm',
+  },
 ]
 
 class ServerspecTask < RSpec::Core::RakeTask

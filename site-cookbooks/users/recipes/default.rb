@@ -25,11 +25,13 @@ data_ids.each do |id|
 
   next unless u['authorized_keys']
 
-  directory "#{u['home']}/.ssh" do
-    owner u['uid']
-    group u['gid']
-    mode 0755
-    action :create
+  [ "#{u['home']}/.ssh" ].each do |dir|
+    directory dir do
+      owner u['uid']
+      group u['gid']
+      mode 0755
+      action :create
+    end
   end
 
   file "#{u['home']}/.ssh/authorized_keys" do

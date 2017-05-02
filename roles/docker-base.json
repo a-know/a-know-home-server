@@ -1,0 +1,17 @@
+{
+  "name": "docker-base",
+  "description": "docker base role",
+  "json_class": "Chef::Role",
+
+  "run_list": [
+    "recipe[awscli]",
+    "recipe[docker::engine]",
+    "recipe[docker::compose]",
+    "recipe[docker::credential_helper]",
+    "recipe[docker::directories]",
+    "recipe[docker::images]",
+    "recipe[pip]",
+    "recipe[sudoers]",
+    "recipe[users]"
+  ]
+}
