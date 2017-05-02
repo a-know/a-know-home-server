@@ -54,7 +54,7 @@ shared_examples 'docker' do
   end
 
   [
-    '/var/www/a-know-home/shared/current',
+    '/var/www/a-know-home/current',
   ].each do |dir|
     describe file dir do
       it { should be_directory }
