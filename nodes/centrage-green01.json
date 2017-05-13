@@ -3,7 +3,7 @@
     "hostname": "centrage-green01"
   },
   "instance_kind": {
-    "color": "green01"
+    "color": "green"
   },
   "run_list": [
     "role[aws-base]",
