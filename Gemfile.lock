@@ -81,7 +81,7 @@ GEM
       net-ssh (>= 2.6.5)
       net-ssh-gateway (>= 1.2.0)
     net-telnet (0.1.1)
-    ohai (13.0.1)
+    ohai (13.1.0)
       chef-config (>= 12.5.0.alpha.1, < 14)
       ffi (~> 1.9)
       ffi-yajl (~> 2.2)
@@ -96,7 +96,7 @@ GEM
     plist (3.3.0)
     proxifier (1.0.3)
     public_suffix (2.0.5)
-    rack (2.0.2)
+    rack (2.0.3)
     rake (12.0.0)
     rspec (3.6.0)
       rspec-core (~> 3.6.0)
@@ -117,13 +117,13 @@ GEM
     rspec_junit_formatter (0.2.3)
       builder (< 4)
       rspec-core (>= 2, < 4, != 2.12.0)
-    serverspec (2.38.0)
+    serverspec (2.38.1)
       multi_json
       rspec (~> 3.0)
       rspec-its
       specinfra (~> 2.53)
     sfl (2.3)
-    specinfra (2.67.9)
+    specinfra (2.67.10)
       net-scp
       net-ssh (>= 2.7, < 5.0)
       net-telnet
