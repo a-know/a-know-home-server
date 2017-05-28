@@ -117,13 +117,13 @@ GEM
     rspec_junit_formatter (0.2.3)
       builder (< 4)
       rspec-core (>= 2, < 4, != 2.12.0)
-    serverspec (2.38.1)
+    serverspec (2.39.1)
       multi_json
       rspec (~> 3.0)
       rspec-its
-      specinfra (~> 2.53)
+      specinfra (~> 2.68)
     sfl (2.3)
-    specinfra (2.67.10)
+    specinfra (2.68.0)
       net-scp
       net-ssh (>= 2.7, < 5.0)
       net-telnet
