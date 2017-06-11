@@ -8,3 +8,10 @@ cron "Post service metric for grass--graph generated image count" do
   command "export MACKEREL_APIKEY=#{mackerel_credentials['api_key']} && d=`date '+\\%Y-\\%m-\\%d'` && #{echo_cmd} | /usr/local/bin/mkr throw --service grass-graph"
   minute '*/15'
 end
+
+cron "Restart fluentd regularly" do
+  user 'root'
+  command "/etc/init.d/td-agent restart"
+  day  '*/4'
+  hour '21'
+end
