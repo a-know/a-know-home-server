@@ -12,6 +12,7 @@ end
 cron "Restart fluentd regularly" do
   user 'root'
   command "/etc/init.d/td-agent restart"
-  day  '*/4'
+  day  '*/5'
   hour '21'
+  minute '0'
 end
