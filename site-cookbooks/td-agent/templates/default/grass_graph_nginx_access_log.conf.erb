@@ -21,36 +21,6 @@
     enable_ruby true
     tag ${tag}.${time.strftime('%Y%m%d')}
   </store>
-  <store>
-    # fluent-plugin-datacounterでステータスコード別に集計する
-    type datacounter
-    id gg_nginx_access_log_datacounter
-    count_interval 1m
-    count_key status
-    aggregate all
-    tag gg.nginx.status.mackerel
-    pattern1 2xx ^2\d\d$
-    pattern2 3xx ^3\d\d$
-    pattern3 4xx ^4\d\d$
-    pattern4 5xx ^5\d\d$
-  </store>
-</match>
-
-# fluent-plugin-mackerelによりサービスメトリックを投稿する
-<match gg.nginx.status.mackerel>
-  type mackerel
-  id gg_nginx_access_log_mackerel
-  buffer_type file
-  buffer_path /var/log/td-agent/buffer/fluent.gg_nginx_access_log_mackerel*.buffer     #バッファデータの出力先ファイルパス
-  buffer_chunk_limit 3k     #1chunkに保存できるデータサイズ上限
-  buffer_queue_limit 3      #1queueに保存できるchunk数の上限
-  retry_wait 30s   #再送を実行するまでの待ち時間
-  retry_limit 5    #再送実施回数
-  api_key <%= @mackerel_api_key %>
-  service <%= @mackerel_service_name %>
-  remove_prefix
-  metrics_name <%= @color %>.access_num.${out_key}
-  out_keys 2xx_count,3xx_count,4xx_count,5xx_count
 </match>
 
 <match gg.log.nginx.**>
