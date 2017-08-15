@@ -1,5 +1,5 @@
 shared_examples 'git' do
-  describe package 'git' do
-    it { should be_installed }
+  describe command('git version') do
+    its(:stdout) { should match /2\.14\.1/ }
   end
 end
