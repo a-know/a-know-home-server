@@ -1,5 +1,6 @@
 include_recipe 'openssl-devel'
 include_recipe 'gettext-devel'
+include_recipe 'expat-devel'
 include_recipe 'curl-devel'
 include_recipe 'perl-extutils'
 include_recipe 'zlib::devel'
