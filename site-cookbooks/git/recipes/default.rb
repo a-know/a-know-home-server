@@ -19,5 +19,5 @@ bash 'Install git-2.14.1.tar.gz' do
   make prefix=/usr/local all
   make prefix=/usr/local install
   EOC
-  not_if { `git version | grep -e 2.14.1` }
+  not_if { File.exists?("/usr/local/src/git-2.14.1") }
 end
