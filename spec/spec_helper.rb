@@ -23,6 +23,7 @@ options[:user] ||= Etc.getlogin
 set :host,        options[:host_name] || host
 set :ssh_options, options
 set :request_pty, true
+set :path, '/sbin:/usr/local/sbin:$PATH'
 
 Dir[File.expand_path('{shared,support}/*.rb', File.dirname(__FILE__))].each do |file|
   require file
