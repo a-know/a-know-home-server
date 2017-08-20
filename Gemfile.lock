@@ -4,10 +4,10 @@ GEM
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     builder (3.2.3)
-    chef (13.2.20)
+    chef (13.3.42)
       addressable
       bundler (>= 1.10)
-      chef-config (= 13.2.20)
+      chef-config (= 13.3.42)
       chef-zero (>= 13.0)
       diff-lcs (~> 1.2, >= 1.2.4)
       erubis (~> 2.7)
@@ -34,7 +34,7 @@ GEM
       specinfra (~> 2.10)
       syslog-logger (~> 1.6)
       uuidtools (~> 2.1.5)
-    chef-config (13.2.20)
+    chef-config (13.3.42)
       addressable
       fuzzyurl
       mixlib-config (~> 2.0)
@@ -63,8 +63,7 @@ GEM
     libyajl2 (1.2.0)
     mixlib-archive (0.4.1)
       mixlib-log
-    mixlib-authentication (1.4.1)
-      mixlib-log
+    mixlib-authentication (1.4.2)
     mixlib-cli (1.7.0)
     mixlib-config (2.2.4)
     mixlib-log (1.7.1)
