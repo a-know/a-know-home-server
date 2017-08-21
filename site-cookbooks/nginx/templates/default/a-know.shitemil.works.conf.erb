@@ -24,6 +24,15 @@ server {
 
     location ~ /(blog_metricks|a_know_metricks)/.+ {
       allow 59.106.108.64/26;
+      allow 52.193.111.118/32;
+      allow 52.196.125.133/32;
+      allow 13.113.213.40/32;
+      allow 52.197.186.229/32;
+      allow 52.198.79.40/32;
+      allow 13.114.12.29/32;
+      allow 13.113.240.89/32;
+      allow 52.68.245.9/32;
+      allow 13.112.142.176/32;
       deny all;
       try_files $uri $uri/index.html $uri.html @unicorn;
     }
