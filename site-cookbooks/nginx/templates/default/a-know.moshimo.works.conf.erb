@@ -1,0 +1,59 @@
+upstream unicorn_moshimo {
+  server unix:/var/www/a-know-home/current/tmp/sockets/unicorn.socket;
+}
+
+server {
+    listen       80;
+    server_name  a-know.moshimo.works;
+
+    set_real_ip_from 10.0.0.0/8; # ELBのIPが複数あるのでまとめて指定
+    real_ip_header  X-Forwarded-For;
+
+    root /var/www/a-know-home/current/public;
+
+    access_log /var/log/nginx/a-know.moshimo.works.access.log ltsv;
+    error_log  /var/log/nginx/a-know.moshimo.works.error.log;
+
+    location ~ /(webdav|muieblackcat|manager/html|cgi-bin) {
+      deny all;
+    }
+
+    location ~ .*\.php {
+      deny all;
+    }
+
+    location ~ /(blog_metricks|a_know_metricks)/.+ {
+      allow 59.106.108.64/26;
+      allow 52.193.111.118/32;
+      allow 52.196.125.133/32;
+      allow 13.113.213.40/32;
+      allow 52.197.186.229/32;
+      allow 52.198.79.40/32;
+      allow 13.114.12.29/32;
+      allow 13.113.240.89/32;
+      allow 52.68.245.9/32;
+      allow 13.112.142.176/32;
+      deny all;
+      try_files $uri $uri/index.html $uri.html @unicorn_moshimo;
+    }
+
+    location ~* .*\.(json|js|html|less|css|eot|svg|ttf|woff|otf|scss|txt|jpg|png|gif|map|ico) {
+      rewrite ^(.*)$ https://home.a-know.me/ redirect;
+    }
+
+    location / {
+      rewrite ^(.*)$ https://home.a-know.me/ redirect;
+    }
+
+    location @unicorn_moshimo {
+      satisfy any;
+      allow   all;
+      proxy_pass http://unicorn_moshimo;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-Host $host;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto $scheme;
+      proxy_set_header Host $http_host;
+      proxy_redirect off;
+    }
+}
