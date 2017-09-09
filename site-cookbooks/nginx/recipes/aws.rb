@@ -36,4 +36,11 @@ template '/etc/nginx/conf.d/grass-graph.shitemil.works.conf' do
   notifies :reload, 'service[nginx]'
 end
 
+template '/etc/nginx/conf.d/grass-graph.moshimo.works.conf' do
+  user     'root'
+  group    'root'
+  mode     0644
+  notifies :reload, 'service[nginx]'
+end
+
 include_recipe 'nginx::logrotate'

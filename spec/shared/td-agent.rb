@@ -21,6 +21,12 @@ shared_examples 'td-agent' do
     it { should be_mode 644 }
   end
 
+  describe file '/etc/td-agent/conf.d/grass_graph_nginx_access_log_moshimo.conf' do
+    it { should be_owned_by 'root' }
+    it { should be_grouped_into 'root' }
+    it { should be_mode 644 }
+  end
+
   describe file '/etc/td-agent/conf.d/rails_production_log.conf' do
     it { should be_owned_by 'root' }
     it { should be_grouped_into 'root' }

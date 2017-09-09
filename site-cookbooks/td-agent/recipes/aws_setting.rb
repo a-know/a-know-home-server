@@ -31,8 +31,12 @@ end
 directory '/etc/td-agent/conf.d'
 
 template '/etc/td-agent/conf.d/grass_graph_nginx_access_log.conf' do
-  variables mackerel_api_key: mackerel_credentials['api_key'], mackerel_service_name: 'grass-graph', color: color
   source 'grass_graph_nginx_access_log.conf.erb'
+  notifies :restart, 'service[td-agent]'
+end
+
+template '/etc/td-agent/conf.d/grass_graph_nginx_access_log_moshimo.conf' do
+  source 'grass_graph_nginx_access_log_moshimo.conf.erb'
   notifies :restart, 'service[td-agent]'
 end
 
