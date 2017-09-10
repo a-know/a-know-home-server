@@ -1,7 +1,7 @@
 # LTSV形式のログファイルを読み込む
 <source>
   type tail
-  id gg_nginx_access_log_tail
+  id gg_nginx_access_log_tail_moshimo
   format ltsv
   time_format %Y-%m-%d %H:%M:%S %z
   path /var/log/nginx/grass-graph.moshimo.works.access.log
@@ -13,11 +13,11 @@
 
 <match gg.log.nginx>
   type copy
-  id gg_nginx_access_log_copy
+  id gg_nginx_access_log_copy_moshimo
   <store>
     # BigQueryの保存先テーブルを日毎に変化させる
     type record_reformer
-    id gg_nginx_access_reformer
+    id gg_nginx_access_reformer_moshimo
     enable_ruby true
     tag ${tag}.${time.strftime('%Y%m%d')}
   </store>
@@ -26,9 +26,9 @@
 <match gg.log.nginx.**>
   type forest
   subtype bigquery
-  id gg_log_nginx_forest
+  id gg_log_nginx_forest_moshimo
   <template>
-    id gg_log_nginx_forest_template
+    id gg_log_nginx_forest_template_moshimo
     method insert
 
     auth_method json_key
@@ -51,7 +51,7 @@
     schema_path /etc/td-agent/settings/nginx_access_log_schema.json
 
     buffer_type file
-    buffer_path /var/log/td-agent/buffer/fluent.gg_log_nginx_forest_${tag_parts[-1]}.buffer     #バッファデータの出力先ファイルパス
+    buffer_path /var/log/td-agent/buffer/fluent.gg_log_nginx_moshimo_forest_${tag_parts[-1]}.buffer     #バッファデータの出力先ファイルパス
     buffer_chunk_limit 3k     #1chunkに保存できるデータサイズ上限
     buffer_queue_limit 3      #1queueに保存できるchunk数の上限
     retry_wait 30s   #再送を実行するまでの待ち時間
