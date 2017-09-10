@@ -15,26 +15,18 @@ shared_examples 'nginx' do
     its(:content) { should include 'stub_status on' }
   end
 
-  describe file '/etc/nginx/conf.d/a-know.me.conf' do
-    it { should be_file }
-    it { should be_owned_by 'root' }
-    it { should be_grouped_into 'root' }
-    it { should be_mode 644 }
-    its(:content) { should include 'ssl_prefer_server_ciphers on' }
-    its(:content) { should include 'ssl_protocols TLSv1 TLSv1.1 TLSv1.2' }
-  end
-
-  describe file '/etc/nginx/conf.d/home.a-know.me.conf' do
-    it { should be_file }
-    it { should be_owned_by 'root' }
-    it { should be_grouped_into 'root' }
-    it { should be_mode 644 }
-    its(:content) { should include '80 default_server' }
-    its(:content) { should include 'ssl_prefer_server_ciphers on' }
-    its(:content) { should include 'ssl_protocols TLSv1 TLSv1.1 TLSv1.2' }
-  end
-
   describe file '/etc/nginx/conf.d/grass-graph.shitemil.works.conf' do
+    it { should be_file }
+    it { should be_owned_by 'root' }
+    it { should be_grouped_into 'root' }
+    it { should be_mode 644 }
+    its(:content) { should match /listen\s+80;/ } # not default server
+    its(:content) { should include 'ssl_prefer_server_ciphers on' }
+    its(:content) { should include 'ssl_protocols TLSv1 TLSv1.1 TLSv1.2' }
+    its(:content) { should include 'add_header Strict-Transport-Security "max-age=2592000; includeSubdomains"' }
+  end
+
+  describe file '/etc/nginx/conf.d/grass-graph.moshimo.works.conf' do
     it { should be_file }
     it { should be_owned_by 'root' }
     it { should be_grouped_into 'root' }
@@ -86,14 +78,14 @@ shared_examples 'nginx::aws' do
     its(:content) { should include 'rewrite ^(.*)$ https://home.a-know.me/ redirect;' }
   end
 
-  describe file '/etc/nginx/conf.d/grass-graph.shitemil.works.conf' do
+  describe file '/etc/nginx/conf.d/a-know.moshimo.works.conf' do
     it { should be_file }
     it { should be_owned_by 'root' }
     it { should be_grouped_into 'root' }
     it { should be_mode 644 }
-    its(:content) { should match /listen\s+80 default_server;/ } # default server
-    its(:content) { should include 'grass-graph.shitemil.works' }
-    its(:content) { should include 'add_header Strict-Transport-Security "max-age=2592000; includeSubdomains"' }
+    its(:content) { should include 'server_name  a-know.moshimo.works;' }
+    its(:content) { should include 'set_real_ip_from 10.0.0.0/8;' }
+    its(:content) { should include 'rewrite ^(.*)$ https://home.a-know.me/ redirect;' }
   end
 
   describe file '/etc/logrotate.d/nginx' do

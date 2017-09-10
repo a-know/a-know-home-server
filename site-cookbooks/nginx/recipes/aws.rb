@@ -29,7 +29,21 @@ template '/etc/nginx/conf.d/a-know.shitemil.works.conf' do
   notifies :reload, 'service[nginx]'
 end
 
+template '/etc/nginx/conf.d/a-know.moshimo.works.conf' do
+  user     'root'
+  group    'root'
+  mode     0644
+  notifies :reload, 'service[nginx]'
+end
+
 template '/etc/nginx/conf.d/grass-graph.shitemil.works.conf' do
+  user     'root'
+  group    'root'
+  mode     0644
+  notifies :reload, 'service[nginx]'
+end
+
+template '/etc/nginx/conf.d/grass-graph.moshimo.works.conf' do
   user     'root'
   group    'root'
   mode     0644

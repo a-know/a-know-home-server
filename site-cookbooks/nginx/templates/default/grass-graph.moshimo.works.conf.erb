@@ -1,15 +1,15 @@
-upstream gg_unicorn {
+upstream moshimo_gg_unicorn {
   server unix:/var/www/a-know-home/current/tmp/sockets/unicorn.socket;
 }
 
 server {
-    listen       80;
-    server_name  grass-graph.shitemil.works;
+    listen       80 default_server;
+    server_name  grass-graph.moshimo.works;
 
     root /var/www/a-know-home/current/public/gglp;
 
-    access_log /var/log/nginx/grass-graph.shitemil.works.access.log ltsv;
-    error_log  /var/log/nginx/grass-graph.shitemil.works.error.log;
+    access_log /var/log/nginx/grass-graph.moshimo.works.access.log ltsv;
+    error_log  /var/log/nginx/grass-graph.moshimo.works.error.log;
 
     add_header Strict-Transport-Security "max-age=2592000; includeSubdomains";
 
@@ -22,21 +22,21 @@ server {
     }
 
     location / {
-      try_files $uri $uri/index.html $uri.html @gg_unicorn;
+      try_files $uri $uri/index.html $uri.html @moshimo_gg_unicorn;
     }
 
     location ~ /images/.+\.png {
-      try_files $uri $uri/index.html $uri.html @gg_unicorn;
+      try_files $uri $uri/index.html $uri.html @moshimo_gg_unicorn;
     }
 
     location ~ .*\.(json|js|html|less|css|eot|svg|ttf|woff|otf|scss|txt|jpg|png|gif|map|ico) {
       root /var/www/a-know-home/current/public/gglp;
     }
 
-    location @gg_unicorn {
+    location @moshimo_gg_unicorn {
       satisfy any;
       allow   all;
-      proxy_pass http://gg_unicorn;
+      proxy_pass http://moshimo_gg_unicorn;
       proxy_set_header X-Real-IP $remote_addr;
       proxy_set_header X-Forwarded-Host $host;
       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
