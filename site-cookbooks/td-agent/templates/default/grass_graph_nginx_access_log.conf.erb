@@ -1,7 +1,7 @@
 # LTSV形式のログファイルを読み込む
 <source>
   type tail
-  id gg_nginx_access_log_tail
+  id gg_nginx_access_log_tail_id
   format ltsv
   time_format %Y-%m-%d %H:%M:%S %z
   path /var/log/nginx/grass-graph.shitemil.works.access.log
@@ -13,11 +13,11 @@
 
 <match gg.log.nginx>
   type copy
-  id gg_nginx_access_log_copy
+  id gg_nginx_access_log_copy_id
   <store>
     # BigQueryの保存先テーブルを日毎に変化させる
     type record_reformer
-    id gg_nginx_access_reformer
+    id gg_nginx_access_reformer_id
     enable_ruby true
     tag ${tag}.${time.strftime('%Y%m%d')}
   </store>
@@ -26,9 +26,9 @@
 <match gg.log.nginx.**>
   type forest
   subtype bigquery
-  id gg_log_nginx_forest
+  id gg_log_nginx_forest_id
   <template>
-    id gg_log_nginx_forest_template
+    id gg_log_nginx_forest_template_id
     method insert
 
     auth_method json_key

@@ -1,10 +1,10 @@
 <match blog-metricks.hatena-star>
   type copy
-  id hatena_star_copy
+  id hatena_star_copy_id
   <store>
     # BigQueryの保存先テーブルを年毎に変化させる
     type record_reformer
-    id hatena_star_reformer
+    id hatena_star_reformer_id
     enable_ruby true
     tag ${tag}.${time.strftime('%Y')}
   </store>
@@ -13,12 +13,12 @@
 <match blog-metricks.hatena-star.**>
   type forest
   subtype copy
-  id hatena_star_forest
+  id hatena_star_forest_id
   <template>
-    id hatena_star_forest_template
+    id hatena_star_forest_template_id
     <store>
       type bigquery
-      id hatena_star_bigquery
+      id hatena_star_bigquery_id
       method insert
 
       auth_method json_key
@@ -48,7 +48,7 @@
     </store>
     <store>
       type mackerel
-      id hatena_star_mackerel_old
+      id hatena_star_mackerel_old_id
       buffer_type file
       buffer_path /var/log/td-agent/buffer/fluent.hatena_star_mackerel_old*.buffer     #バッファデータの出力先ファイルパス
       buffer_chunk_limit 3k     #1chunkに保存できるデータサイズ上限
@@ -62,7 +62,7 @@
     </store>
     <store>
       type mackerel
-      id hatena_star_mackerel
+      id hatena_star_mackerel_id
       buffer_type file
       buffer_path /var/log/td-agent/buffer/fluent.hatena_star_mackerel*.buffer     #バッファデータの出力先ファイルパス
       buffer_chunk_limit 3k     #1chunkに保存できるデータサイズ上限

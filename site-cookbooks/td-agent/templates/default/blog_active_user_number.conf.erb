@@ -1,10 +1,10 @@
 <match blog-metricks.active-visitors>
   type copy
-  id active_visitors_copy
+  id active_visitors_copy_id
   <store>
     # BigQueryの保存先テーブルを年毎に変化させる
     type record_reformer
-    id active_visitors_reformer
+    id active_visitors_reformer_id
     enable_ruby true
     tag ${tag}.${time.strftime('%Y')}
   </store>
@@ -13,12 +13,12 @@
 <match blog-metricks.active-visitors.**>
   type forest
   subtype copy
-  id active_visitors_forest
+  id active_visitors_forest_id
   <template>
-    id active_visitors_forest_template
+    id active_visitors_forest_template_id
     <store>
       type bigquery
-      id active_visitors_bigquery
+      id active_visitors_bigquery_id
       method insert
 
       auth_method json_key
@@ -48,7 +48,7 @@
     </store>
     <store>
       type mackerel
-      id active_visitors_mackerel_old
+      id active_visitors_mackerel_old_id
       buffer_type file
       buffer_path /var/log/td-agent/buffer/fluent.active_visitors_mackerel_old.*.buffer     #バッファデータの出力先ファイルパス
       buffer_chunk_limit 3k     #1chunkに保存できるデータサイズ上限
@@ -62,7 +62,7 @@
     </store>
     <store>
       type mackerel
-      id active_visitors_mackerel
+      id active_visitors_mackerel_id
       buffer_type file
       buffer_path /var/log/td-agent/buffer/fluent.active_visitors_mackerel.*.buffer     #バッファデータの出力先ファイルパス
       buffer_chunk_limit 3k     #1chunkに保存できるデータサイズ上限

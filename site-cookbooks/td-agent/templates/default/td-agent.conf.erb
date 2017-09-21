@@ -1,18 +1,18 @@
 <source>
   type monitor_agent
-  id monitor_agent_input
+  id monitor_agent_input_id
   bind 0.0.0.0
   port 24220
 </source>
 
 <source>
   type forward
-  id source_forward
+  id source_forward_id
 </source>
 
 <match knock.slack>
   type slack
-  id knock_slack
+  id knock_slack_id
   buffer_type file
   buffer_path /var/log/td-agent/buffer/fluent.knock.slack.*.buffer     #バッファデータの出力先ファイルパス
   buffer_chunk_limit 3k     #1chunkに保存できるデータサイズ上限
