@@ -4,6 +4,10 @@ shared_examples 'nginx' do
     it { should be_running }
   end
 
+  describe command('nginx -t -c /etc/nginx/nginx.conf') do
+    its(:exit_status) { should eq 0 }
+  end
+
   describe file '/etc/nginx/nginx.conf' do
     it { should be_file }
     it { should be_owned_by 'root' }
@@ -50,6 +54,10 @@ shared_examples 'nginx::aws' do
   describe service 'nginx' do
     it { should be_enabled }
     it { should be_running }
+  end
+
+  describe command('nginx -t -c /etc/nginx/nginx.conf') do
+    its(:exit_status) { should eq 0 }
   end
 
   describe file '/etc/nginx/nginx.conf' do
