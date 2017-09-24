@@ -17,15 +17,11 @@ server {
       deny all;
     }
 
-    location / {
-      return 301 https://grass-graph.moshimo.works$request_uri;
-    }
-
     location ~ /images/.+\.png {
-      return 301 https://grass-graph.moshimo.works$request_uri;
+      return 301 https://grass-graph.moshimo.works/images/relocated.png;
     }
 
-    location ~ .*\.(json|js|html|less|css|eot|svg|ttf|woff|otf|scss|txt|jpg|png|gif|map|ico) {
+    location / {
       return 301 https://grass-graph.moshimo.works$request_uri;
     }
 }
