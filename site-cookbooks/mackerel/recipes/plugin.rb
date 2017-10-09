@@ -50,6 +50,12 @@ cookbook_file '/etc/mackerel-agent/mackerel-plugin-linux-lite' do
   mode '0755'
 end
 
+cookbook_file '/etc/mackerel-agent/mackerel-plugin-ntpq' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+end
+
 cookbook_file '/etc/mackerel-agent/conf.d/metadata-plugins.conf' do
   owner 'root'
   group 'root'

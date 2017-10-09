@@ -66,6 +66,13 @@ shared_examples 'mackerel' do
       it { should be_grouped_into 'root' }
       it { should be_mode 755 }
     end
+    
+    describe file '/etc/mackerel-agent/mackerel-plugin-ntpq' do
+      it { should be_file }
+      it { should be_owned_by 'root' }
+      it { should be_grouped_into 'root' }
+      it { should be_mode 755 }
+    end
 
     describe file '/etc/mackerel-agent/conf.d/metadata-plugins.conf' do
       it { should be_file }
