@@ -129,3 +129,15 @@ command = "echo -e \"proc_sum.nginx\t$(ps -f -u nginx | grep worker | grep -v gr
 
 [plugin.metrics.unicorn]
 command = "mackerel-plugin-unicorn -pidfile=/var/www/a-know-home/shared/tmp/pids/unicorn.pid"
+
+[plugin.metrics.inode]
+command = "mackerel-plugin-inode"
+
+[plugin.metrics.linux_lite]
+command = "/etc/mackerel-agent/mackerel-plugin-linux-lite"
+
+[plugin.metrics.ntpq]
+command = "/etc/mackerel-agent/mackerel-plugin-ntpq"
+
+[plugin.metrics.conntrack]
+command = "mackerel-plugin-conntrack"
