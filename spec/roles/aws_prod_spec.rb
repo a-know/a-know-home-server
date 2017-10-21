@@ -30,6 +30,7 @@ describe 'web' do
   # aws-prod
   it_behaves_like 'crond'
   it_behaves_like 'crontab'
+  it_behaves_like 'newrelic-infrastructure'
   it_behaves_like 'mackerel'
   it_behaves_like 'mkswap'
   it_behaves_like 'perl-json'
