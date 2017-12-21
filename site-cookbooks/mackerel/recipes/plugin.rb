@@ -38,6 +38,13 @@ cookbook_file '/etc/mackerel-agent/conf.d/mackerel-plugin-accesslog.conf' do
   notifies :restart, 'service[mackerel-agent]'
 end
 
+cookbook_file '/etc/mackerel-agent/conf.d/mackerel-plugin-aws.conf' do
+  owner 'root'
+  group 'root'
+  mode '0644'
+  notifies :restart, 'service[mackerel-agent]'
+end
+
 cookbook_file '/etc/mackerel-agent/instance_meta_data.rb' do
   owner 'root'
   group 'root'
