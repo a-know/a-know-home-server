@@ -291,7 +291,7 @@
         "SecurityGroups": [ { "Ref" : "SecurityGroupForLb" } ],
         "LoadBalancerName" : "ElasticLoadBalancer",
         "Subnets" : [ { "Ref" : "BluePublicSubnet" }, { "Ref" : "GreenPublicSubnet" } ],
-        "Instances" : [ { "Ref" : "BluePublicEC2Instance01" }, { "Ref" : "GreenPublicEC2Instance01" } ],
+        "Instances" : [ { "Ref" : "BluePublicEC2Instance01" } ],
         "Tags" : [
           { "Key" : "Name", "Value" : "ELB" }
         ],
