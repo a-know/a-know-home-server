@@ -253,37 +253,6 @@
         ]
       }
     },
-    "GreenPublicEC2Instance01": {
-      "Type" : "AWS::EC2::Instance",
-      "Properties" : {
-        "ImageId" : "ami-eec1c380",
-        "InstanceType" : "t2.micro",
-        "KeyName" : "for-new-aws",
-        "Tags" : [
-          { "Key" : "Name", "Value" : "Web（緑・Ruby2.4.0・SSD）" }
-        ],
-        "BlockDeviceMappings" : [
-          {
-            "DeviceName" : "/dev/sda1",
-            "Ebs" : {
-              "DeleteOnTermination" : true,
-              "VolumeSize" : "10",
-              "VolumeType" : "gp2"
-            }
-          }
-        ],
-        "NetworkInterfaces": [
-          {
-            "AssociatePublicIpAddress": "true",
-            "DeviceIndex": "0",
-            "DeleteOnTermination" : "true",
-            "PrivateIpAddress" : "10.0.2.10",
-            "SubnetId": { "Ref" : "GreenPublicSubnet" },
-            "GroupSet": [ { "Ref" : "SecurityGroupForPublic" } ]
-          }
-        ]
-      }
-    },
     "ElasticLoadBalancer": {
       "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
       "Properties": {
@@ -291,7 +260,7 @@
         "SecurityGroups": [ { "Ref" : "SecurityGroupForLb" } ],
         "LoadBalancerName" : "ElasticLoadBalancer",
         "Subnets" : [ { "Ref" : "BluePublicSubnet" }, { "Ref" : "GreenPublicSubnet" } ],
-        "Instances" : [ { "Ref" : "BluePublicEC2Instance01" }, { "Ref" : "GreenPublicEC2Instance01" } ],
+        "Instances" : [ { "Ref" : "BluePublicEC2Instance01" } ],
         "Tags" : [
           { "Key" : "Name", "Value" : "ELB" }
         ],
