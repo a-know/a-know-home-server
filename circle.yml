@@ -10,7 +10,7 @@ dependencies:
   pre:
     - |
       curl -fsSL https://mackerel.io/assets/files/scripts/setup-apt.sh | sh; sudo apt-get install mkr
-      VERSION=1.8.7
+      VERSION=2.0.3
       mkdir ~/cache
       mkdir .ssh
       cd ~/cache
@@ -19,7 +19,7 @@ dependencies:
       fi
       sudo dpkg -i vagrant_${VERSION}_x86_64.deb
       if ! vagrant plugin list | fgrep -q vagrant-google; then
-        vagrant plugin install vagrant-google --plugin-version 0.2.4
+        vagrant plugin install vagrant-google
       fi
       cd ~/$CIRCLE_PROJECT_REPONAME
       echo $GCP_KEY > $GCP_KEY_LOCATION
